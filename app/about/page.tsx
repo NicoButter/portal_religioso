@@ -34,10 +34,16 @@ export default function AboutPage() {
               <figcaption className="text-sm text-center text-gray-500 mt-3">Fabián Cavero — Editor</figcaption>
             </figure>
 
-            <div className="mt-2">
-              <p className="text-lg mb-3"><strong>Fabián Cavero</strong> es el editor y creador de este portal espiritual. Dedicado al acompañamiento pastoral y la difusión de contenidos de fe, comparte reflexiones, lecturas y recursos musicales para nutrir la vida espiritual de la comunidad.</p>
-              <p className="mb-2">Su trabajo se centra en la pastoral comunitaria, la organización de actividades eclesiales y la escritura de material espiritual pensado para el crecimiento personal y comunitario.</p>
-              <p>Si deseas contactar o colaborar, puedes usar los medios que se indiquen más adelante en el portal.</p>
+            <div className="mt-2 text-black">
+              <p className="text-lg mb-3">Este portal nace como un espacio para compartir la fe desde un lugar cercano, simple y auténtico.</p>
+
+              <p className="mb-3">Mi camino está profundamente ligado a la vida pastoral y al acompañamiento de la comunidad, buscando siempre generar espacios de encuentro, reflexión y crecimiento dentro de la fe católica.</p>
+
+              <p className="mb-3">La música forma parte esencial de ese recorrido. A través de la guitarra y el canto, intento transmitir el mensaje del Evangelio de una manera viva, que pueda llegar al corazón.</p>
+
+              <p className="mb-3">Este espacio es una extensión de todo eso: un lugar donde la palabra, la música y la experiencia se encuentran para acompañar a quienes también están en búsqueda.</p>
+
+              <p>Si sentís que este contenido puede ayudarte o querés ser parte, vas a encontrar distintas formas de acercarte a lo largo del portal.</p>
             </div>
           </div>
         </div>
