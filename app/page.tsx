@@ -2,6 +2,7 @@
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Link from 'next/link';
+import Card from './components/Card';
 
 export default function Home() {
   return (
@@ -16,49 +17,36 @@ export default function Home() {
         </section>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Actividades de la Iglesia */}
-          <div className="bg-white rounded shadow p-6 flex flex-col justify-between">
-            <div>
-              <h2 className="text-xl font-semibold text-blue-600 mb-2">Actividades de la Iglesia</h2>
-              <ul className="list-disc pl-6 text-gray-700 space-y-1 mb-4">
-                <li>Misas semanales y celebraciones especiales</li>
-                <li>Grupos de oración y reflexión</li>
-                <li>Acciones solidarias y voluntariado</li>
-                <li>Charlas y talleres espirituales</li>
-              </ul>
-            </div>
-            <Link href="#" className="text-blue-600 hover:underline font-medium self-end">Ver calendario</Link>
-          </div>
+          <Card title="Actividades de la Iglesia" href="#">
+            <ul className="list-disc pl-6 text-gray-700 space-y-1">
+              <li>Misas semanales y celebraciones especiales</li>
+              <li>Grupos de oración y reflexión</li>
+              <li>Acciones solidarias y voluntariado</li>
+              <li>Charlas y talleres espirituales</li>
+            </ul>
+          </Card>
 
-          {/* Novedades */}
-          <div className="bg-white rounded shadow p-6 flex flex-col justify-between">
-            <div>
-              <h2 className="text-xl font-semibold text-blue-600 mb-2">Novedades</h2>
-              <ul className="list-disc pl-6 text-gray-700 space-y-1 mb-4">
-                <li>Nuevo material de lectura disponible en <Link href="/lecturas" className="text-blue-600 hover:underline">Lecturas</Link></li>
-                <li>Próxima jornada de retiro espiritual</li>
-                <li>Actualización de la galería de <Link href="/musica" className="text-blue-600 hover:underline">música espiritual</Link></li>
-              </ul>
-            </div>
-            <Link href="#" className="text-blue-600 hover:underline font-medium self-end">Ver todas las novedades</Link>
-          </div>
+          <Card title="Novedades" href="#">
+            <ul className="list-disc pl-6 text-gray-700 space-y-1">
+              <li>Nuevo material de lectura disponible en <Link href="/lecturas" className="text-blue-600 hover:underline">Lecturas</Link></li>
+              <li>Próxima jornada de retiro espiritual</li>
+              <li>Actualización de la galería de <Link href="/musica" className="text-blue-600 hover:underline">música espiritual</Link></li>
+            </ul>
+          </Card>
 
-          {/* ¿Qué puedes encontrar en el portal? */}
-          <div className="bg-white rounded shadow p-6 flex flex-col justify-between">
-            <div>
-              <h2 className="text-xl font-semibold text-blue-600 mb-2">¿Qué puedes encontrar en el portal?</h2>
-              <ul className="list-disc pl-6 text-gray-700 space-y-1 mb-4">
-                <li><Link href="/reflexiones" className="text-blue-600 hover:underline">Reflexiones</Link> para el alma</li>
-                <li><Link href="/lecturas" className="text-blue-600 hover:underline">Lecturas espirituales</Link> exclusivas</li>
-                <li><Link href="/musica" className="text-blue-600 hover:underline">Música</Link> para meditar y orar</li>
-                <li>Información sobre actividades y eventos</li>
-                <li>Un espacio para crecer en comunidad</li>
-              </ul>
-            </div>
-            <Link href="#" className="text-blue-600 hover:underline font-medium self-end">Explorar el portal</Link>
-          </div>
+          <Card title="¿Qué puedes encontrar en el portal?" href="#">
+            <ul className="list-disc pl-6 text-gray-700 space-y-1">
+              <li><Link href="/reflexiones" className="text-blue-600 hover:underline">Reflexiones</Link> para el alma</li>
+              <li><Link href="/lecturas" className="text-blue-600 hover:underline">Lecturas espirituales</Link> exclusivas</li>
+              <li><Link href="/musica" className="text-blue-600 hover:underline">Música</Link> para meditar y orar</li>
+              <li>Información sobre actividades y eventos</li>
+              <li>Un espacio para crecer en comunidad</li>
+            </ul>
+          </Card>
 
-          {/* Tarjeta 'Sobre' eliminada: ahora hay una página dedicada */}
+          <Card title="Sobre Fabián Cavero" href="/about">
+            <p className="text-gray-700">Editor y creador del portal. Acompañamiento pastoral, reflexiones y recursos espirituales.</p>
+          </Card>
         </div>
       </main>
       <Footer />

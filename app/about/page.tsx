@@ -1,5 +1,6 @@
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import Image from 'next/image';
 
 export default function AboutPage() {
   const schema = {
@@ -8,7 +9,7 @@ export default function AboutPage() {
     "name": "Fabián Cavero",
     "description": "Editor del Portal Espiritual. Acompañamiento pastoral, reflexiones y material espiritual.",
     "jobTitle": "Editor y acompañante espiritual",
-    "image": `${process.env.NEXT_PUBLIC_SITE_URL || ''}/fabian.svg`,
+      "image": `${process.env.NEXT_PUBLIC_SITE_URL || ''}/images/about/fabian_about.webp`,
     "url": `${process.env.NEXT_PUBLIC_SITE_URL || ''}`
   };
 
@@ -16,13 +17,21 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <NavBar />
       <main className="flex-1 max-w-3xl mx-auto py-12 px-4">
-        <h1 className="text-2xl font-bold text-blue-700 mb-6">Sobre Fabián Cavero</h1>
+          <h1 className="text-2xl font-bold text-blue-700 mb-6">Sobre mí</h1>
 
         <div className="bg-white rounded shadow p-6 text-gray-700">
           <div className="md:flex md:items-start md:gap-6">
-            <figure className="w-40 h-40 mx-auto md:mx-0 mb-4 md:mb-0">
-              <img src="/fabian.svg" alt="Foto de Fabián Cavero, editor del portal" className="w-full h-full object-cover rounded-full border" />
-              <figcaption className="text-sm text-center text-gray-500 mt-2">Fabián Cavero — Editor</figcaption>
+            <figure className="w-80 h-56 md:w-[560px] md:h-72 lg:w-[840px] lg:h-96 xl:w-[1024px] xl:h-[420px] mx-auto md:mx-0 mb-4 md:mb-0 relative">
+              <div className="relative w-full h-full rounded-lg overflow-hidden border">
+                <Image
+                  src="/images/about/fabian_about.webp"
+                  alt="Fabián Cavero"
+                  fill
+                  sizes="(min-width:1280px) 1024px, (min-width:1024px) 840px, (min-width:768px) 560px, 320px"
+                  className="object-cover object-center"
+                />
+              </div>
+              <figcaption className="text-sm text-center text-gray-500 mt-3">Fabián Cavero — Editor</figcaption>
             </figure>
 
             <div className="mt-2">
