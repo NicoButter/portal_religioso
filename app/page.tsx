@@ -8,7 +8,25 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <NavBar />
-      <main className="flex-1 max-w-4xl mx-auto py-10 px-4 space-y-10">
+      <main className="flex-1 max-w-4xl mx-auto pt-28 px-4 space-y-10">
+        <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden rounded-lg shadow-lg">
+          <div className="absolute inset-0">
+            <iframe
+              src="https://www.youtube.com/embed/2OEL4P1Rz04?autoplay=1&mute=1&loop=1&playlist=2OEL4P1Rz04&controls=0&rel=0"
+              className="w-full h-full"
+              title="Hero video"
+              frameBorder="0"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="relative z-10 flex items-center justify-center h-full bg-black/35">
+            <div className="text-center text-white max-w-2xl px-4">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Bienvenido a tu Portal Espiritual</h2>
+              <p className="text-lg md:text-xl">Un espacio para la fe, la música y el acompañamiento.</p>
+            </div>
+          </div>
+        </section>
         <section className="text-center mb-8">
             <h1 className="text-3xl font-bold text-black mb-4">Bienvenido a tu Portal Espiritual</h1>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
