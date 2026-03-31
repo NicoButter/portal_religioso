@@ -17,7 +17,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <NavBar />
       <main className="flex-1 max-w-3xl mx-auto py-12 px-4">
-          <h1 className="text-2xl font-bold text-blue-700 mb-6">Sobre mí</h1>
+          <h1 className="text-2xl font-bold text-black mb-6">Sobre mí</h1>
 
         <div className="bg-white rounded shadow p-6 text-gray-700">
           <div className="md:flex md:items-start md:gap-6">

@@ -10,7 +10,7 @@ export default function Home() {
       <NavBar />
       <main className="flex-1 max-w-4xl mx-auto py-10 px-4 space-y-10">
         <section className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-blue-700 mb-4">Bienvenido a tu Portal Espiritual</h1>
+            <h1 className="text-3xl font-bold text-black mb-4">Bienvenido a tu Portal Espiritual</h1>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Un espacio personal para reflexionar, encontrar inspiración y disfrutar de música espiritual. Explora las reflexiones, escucha música, accede a lecturas y mantente informado sobre las actividades de la iglesia.
           </p>
@@ -28,17 +28,17 @@ export default function Home() {
 
           <Card title="Novedades" href="#">
             <ul className="list-disc pl-6 text-gray-700 space-y-1">
-              <li>Nuevo material de lectura disponible en <Link href="/lecturas" className="text-blue-600 hover:underline">Lecturas</Link></li>
+              <li>Nuevo material de lectura disponible en <Link href="/lecturas" className="text-black hover:underline">Lecturas</Link></li>
               <li>Próxima jornada de retiro espiritual</li>
-              <li>Actualización de la galería de <Link href="/musica" className="text-blue-600 hover:underline">música espiritual</Link></li>
+              <li>Actualización de la galería de <Link href="/musica" className="text-black hover:underline">música espiritual</Link></li>
             </ul>
           </Card>
 
           <Card title="¿Qué puedes encontrar en el portal?" href="#">
             <ul className="list-disc pl-6 text-gray-700 space-y-1">
-              <li><Link href="/reflexiones" className="text-blue-600 hover:underline">Reflexiones</Link> para el alma</li>
-              <li><Link href="/lecturas" className="text-blue-600 hover:underline">Lecturas espirituales</Link> exclusivas</li>
-              <li><Link href="/musica" className="text-blue-600 hover:underline">Música</Link> para meditar y orar</li>
+              <li><Link href="/reflexiones" className="text-black hover:underline">Reflexiones</Link> para el alma</li>
+              <li><Link href="/lecturas" className="text-black hover:underline">Lecturas espirituales</Link> exclusivas</li>
+              <li><Link href="/musica" className="text-black hover:underline">Música</Link> para meditar y orar</li>
               <li>Información sobre actividades y eventos</li>
               <li>Un espacio para crecer en comunidad</li>
             </ul>

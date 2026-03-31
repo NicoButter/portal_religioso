@@ -10,11 +10,11 @@ export default function MusicaPage() {
     <div className="min-h-screen bg-gray-50">
       <NavBar />
       <main className="max-w-2xl mx-auto p-6">
-        <h1 className="text-2xl font-bold mb-4 text-gray-800">Música Espiritual</h1>
+        <h1 className="text-2xl font-bold mb-4 text-black">Música Espiritual</h1>
         <div className="space-y-8">
           {videos.map((video, idx) => (
             <div key={idx} className="bg-white p-4 rounded shadow">
-              <h2 className="text-lg font-semibold text-blue-700 mb-2">{video.title}</h2>
+              <h2 className="text-lg font-semibold text-black mb-2">{video.title}</h2>
               <div className="aspect-w-16 aspect-h-9">
                 <iframe
                   className="w-full h-64 rounded"
