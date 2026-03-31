@@ -1,12 +1,12 @@
 
-import Header from './components/Header';
+import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Link from 'next/link';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header />
+      <NavBar />
       <main className="flex-1 max-w-4xl mx-auto py-10 px-4 space-y-10">
         <section className="text-center mb-8">
           <h1 className="text-3xl font-bold text-blue-700 mb-4">Bienvenido a tu Portal Espiritual</h1>
