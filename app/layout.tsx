@@ -21,9 +21,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${nunito.variable} h-full antialiased`}
+      className={`${nunito.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-screen flex flex-col font-sans">{children}</body>
     </html>
   );
 }
