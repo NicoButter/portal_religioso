@@ -27,7 +27,7 @@ export default function Home() {
                 Bienvenido a tu Portal Espiritual
               </h2>
               <p className="text-xl md:text-2xl font-light tracking-wide opacity-90">
-                Un espacio para la fe, la música y el acompañamiento.
+                Un espacio para la fé, la música y el acompañamiento.
               </p>
             </div>
           </div>
@@ -117,14 +117,14 @@ export default function Home() {
               <div className="md:w-1/3">
                 <h2 className="text-3xl font-black text-gray-900 mb-4 uppercase tracking-tighter">Nuestra Ubicación</h2>
                 <p className="text-gray-600 mb-8 leading-relaxed">
-                  Te esperamos en nuestra comunidad para compartir la fe. Siéntete libre de visitarnos en los horarios de celebración.
+                  Te esperamos en nuestra comunidad para compartir la fé. Siéntete libre de visitarnos en los horarios de celebración.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
                     <div className="bg-gray-100 p-3 rounded-full text-red-600">📍</div>
                     <div>
                       <p className="font-bold text-gray-900">Dirección</p>
-                      <p className="text-gray-500">Calle Principal 123, Ciudad del Vaticano</p>
+                      <p className="text-gray-500">Barrio Bancario, Calle Tacuarí, Mendoza</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">

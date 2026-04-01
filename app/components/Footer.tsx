@@ -6,46 +6,70 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-r from-slate-800 via-slate-900 to-black text-gray-300 py-8 mt-12">
+    <footer className="bg-gray-950 text-white border-t border-white/5 pt-24 pb-12">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-          <div className="flex-1">
-            <div className="text-xl font-semibold text-white">Fabián Cavero</div>
-            <p className="text-sm text-slate-300 mt-2">Editor · Acompañamiento espiritual · Contenido para la vida interior</p>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+          
+          {/* Columna Marca */}
+          <div className="md:col-span-5">
+            <div className="text-3xl font-black text-white tracking-tighter uppercase mb-6 leading-none">
+              Fabián <br />
+              <span className="text-red-600">Cavero</span>
+            </div>
+            <p className="text-gray-400 text-lg leading-relaxed max-w-sm font-light">
+              Un espacio dedicado al acompañamiento espiritual, la reflexión profunda y el encuentro a través de la música y la palabra.
+            </p>
+            <div className="mt-10 flex gap-4">
+              {['FB', 'IG', 'YT'].map((social) => (
+                <div key={social} className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-[10px] font-black text-gray-400 border border-white/10 hover:border-red-600 hover:text-white hover:bg-red-600 cursor-pointer transition-all duration-300">
+                  {social}
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="flex-1">
-            <div className="grid grid-cols-2 gap-4 md:gap-8">
+          {/* Columna Enlaces Rápidos */}
+          <div className="md:col-span-3">
+            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-white/50 mb-10">
+              Contenido
+            </h3>
+            <ul className="space-y-5">
+              <li><Link href="/" className="text-gray-400 hover:text-white font-bold transition-colors">Inicio</Link></li>
+              <li><Link href="/reflexiones" className="text-gray-400 hover:text-white font-bold transition-colors">Reflexiones</Link></li>
+              <li><Link href="/lecturas" className="text-gray-400 hover:text-white font-bold transition-colors">Lecturas</Link></li>
+              <li><Link href="/musica" className="text-gray-400 hover:text-white font-bold transition-colors">Música Original</Link></li>
+              <li><Link href="/galeria" className="text-gray-400 hover:text-white font-bold transition-colors underline decoration-red-600 decoration-2 underline-offset-4">Galería de Celebraciones</Link></li>
+            </ul>
+          </div>
+
+          {/* Columna Info / Contacto */}
+          <div className="md:col-span-4">
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-white/50 mb-10">
+              Contacto
+            </h3>
+            <div className="space-y-8">
               <div>
-                <h3 className="text-sm font-medium text-slate-200 mb-2">Secciones</h3>
-                <ul className="text-sm space-y-1">
-                  <li><Link href="/" className="hover:underline">Home</Link></li>
-                  <li><Link href="/reflexiones" className="hover:underline">Reflexiones</Link></li>
-                  <li><Link href="/lecturas" className="hover:underline">Lecturas</Link></li>
-                </ul>
+                <p className="text-red-600 font-black text-xs uppercase tracking-widest mb-2">Ubicación</p>
+                <p className="text-gray-300 text-lg font-medium leading-tight">Barrio Bancario, Calle Tacuarí, Mendoza</p>
               </div>
               <div>
-                <h3 className="text-sm font-medium text-slate-200 mb-2">Recursos</h3>
-                <ul className="text-sm space-y-1">
-                  <li><Link href="/musica" className="hover:underline">Música</Link></li>
-                  <li><Link href="/about" className="hover:underline">Sobre mí</Link></li>
-                </ul>
+                <p className="text-red-600 font-black text-xs uppercase tracking-widest mb-2">Horarios</p>
+                <p className="text-gray-300">Atención Personal: Lun-Vie 09:00 - 18:00</p>
               </div>
             </div>
           </div>
 
-          <div className="flex-1">
-            <h3 className="text-sm font-medium text-slate-200 mb-2">Boletín</h3>
-            <p className="text-sm text-slate-300 mb-3">Recibe noticias y novedades (formulario no funcional todavía).</p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
-              <input aria-label="email" type="email" placeholder="tucorreo@ejemplo.com" className="w-full rounded border border-slate-700 bg-transparent px-3 py-2 text-sm text-white placeholder-slate-400 focus:outline-none" />
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm">Suscribir</button>
-            </form>
-          </div>
         </div>
 
-        <div className="mt-8 border-t border-slate-700 pt-4 text-center text-sm text-slate-400">
-          <div className="mb-1">© {year} Fabián Cavero — Todos los derechos reservados.</div>
+        {/* Bottom Bar */}
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.2em]">
+            © {year} FABIÁN CAVERO — TODOS LOS DERECHOS RESERVADOS
+          </p>
+          <div className="flex gap-10 text-[10px] font-black text-gray-500 uppercase tracking-tighter">
+            <span className="hover:text-red-600 transition-colors cursor-pointer">Privacidad</span>
+            <span className="hover:text-red-600 transition-colors cursor-pointer">Términos</span>
+          </div>
         </div>
       </div>
     </footer>

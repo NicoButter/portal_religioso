@@ -50,6 +50,12 @@ export default function NavBar() {
             Música
           </Link>
           <Link 
+            href="/galeria" 
+            className="bg-red-600 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase hover:bg-white hover:text-red-600 transition-all tracking-tighter"
+          >
+            Galería
+          </Link>
+          <Link 
             href="/about" 
             className="text-sm uppercase tracking-wide hover:text-gray-300 transition-colors"
           >
