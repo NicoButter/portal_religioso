@@ -8,9 +8,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <NavBar />
-      <main className="flex-1 max-w-4xl mx-auto pt-28 px-4 space-y-10">
-        <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden rounded-lg shadow-lg">
-          <div className="absolute inset-0">
+      <main className="flex-1 w-full">
+        {/* Hero Section Moderno: Full Width & Full Height */}
+        <section className="relative w-full h-screen overflow-hidden">
+          <div className="absolute inset-0 scale-150 pointer-events-none">
             <iframe
               src="https://www.youtube.com/embed/2OEL4P1Rz04?autoplay=1&mute=1&loop=1&playlist=2OEL4P1Rz04&controls=0&rel=0"
               className="w-full h-full"
@@ -20,22 +21,29 @@ export default function Home() {
               allowFullScreen
             ></iframe>
           </div>
-          <div className="relative z-10 flex items-center justify-center h-full bg-black/35">
-            <div className="text-center text-white max-w-2xl px-4">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Bienvenido a tu Portal Espiritual</h2>
-              <p className="text-lg md:text-xl">Un espacio para la fe, la música y el acompañamiento.</p>
+          <div className="relative z-10 flex items-center justify-center h-full bg-black/40">
+            <div className="text-center text-white max-w-3xl px-6">
+              <h2 className="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg">
+                Bienvenido a tu Portal Espiritual
+              </h2>
+              <p className="text-xl md:text-2xl font-light tracking-wide opacity-90">
+                Un espacio para la fe, la música y el acompañamiento.
+              </p>
             </div>
           </div>
         </section>
-        <section className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-black mb-4">Bienvenido a tu Portal Espiritual</h1>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Un espacio personal para reflexionar, encontrar inspiración y disfrutar de música espiritual. Explora las reflexiones, escucha música, accede a lecturas y mantente informado sobre las actividades de la iglesia.
-          </p>
-        </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card title="Actividades de la Iglesia" href="#">
+        {/* Contenedor central para el resto del contenido */}
+        <div className="max-w-6xl mx-auto px-4 py-20 space-y-20">
+          <section className="text-center">
+            <h1 className="text-4xl font-bold text-gray-900 mb-6">Inspiración y Comunidad</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Un espacio personal para reflexionar, encontrar inspiración y disfrutar de música espiritual. Explora las reflexiones, escucha música, accede a lecturas y mantente informado sobre las actividades de la iglesia.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <Card title="Actividades de la Iglesia" href="#">
             <ul className="list-disc pl-6 text-gray-700 space-y-1">
               <li>Misas semanales y celebraciones especiales</li>
               <li>Grupos de oración y reflexión</li>
@@ -66,6 +74,7 @@ export default function Home() {
             <p className="text-gray-700">Editor y creador del portal. Acompañamiento pastoral, reflexiones y recursos espirituales.</p>
           </Card>
         </div>
+      </div>
       </main>
       <Footer />
     </div>
