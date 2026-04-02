@@ -15,10 +15,10 @@ export default function TerminosPage() {
               1. Finalidad del Portal
             </h2>
             <p className="mb-4 text-lg">
-              El portal <strong>Caminando la Fe - Fabián</strong> tiene como propósito principal ofrecer un espacio de acompañamiento espiritual, reflexión cristiana y recursos didácticos para músicos y guitarristas católicos.
+              El portal <strong>Caminando la Fé - Fabián</strong> tiene como propósito principal ofrecer un espacio de acompañamiento espiritual, reflexión cristiana y recursos didácticos para músicos y guitarristas católicos.
             </p>
             <p>
-              Buscamos facilitar el acceso a lecturas sagradas, composiciones musicales originales y herramientas técnicas (como el transportador de acordes) para enriquecer la vida de fe de nuestra comunidad y el servicio litúrgico.
+              Buscamos facilitar el acceso a lecturas sagradas, composiciones musicales originales y herramientas técnicas (como el transportador de acordes) para enriquecer la vida de fé de nuestra comunidad y el servicio litúrgico.
             </p>
           </section>
 

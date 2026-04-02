@@ -26,7 +26,7 @@ export default function Home() {
                 Caminando en la Fé
               </h2>
               <p className="text-xl md:text-2xl font-light tracking-wide opacity-90">
-                Donde la fe se hace experiencia, la música se vuelve mensaje y el camino se comparte.
+                Donde la fé se hace experiencia, la música se vuelve mensaje y el camino se comparte.
               </p>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function Home() {
                   Cronograma de Semana Santa 2026: Pasión, Muerte y Resurrección
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Acompáñanos en los días más sagrados de nuestra fe. Desde el Domingo de Ramos hasta la Vigilia Pascual, conoce todos los horarios de las celebraciones, vía crucis y momentos de oración comunitaria en nuestra parroquia.
+                  Acompáñanos en los días más sagrados de nuestra fé. Desde el Domingo de Ramos hasta la Vigilia Pascual, conoce todos los horarios de las celebraciones, vía crucis y momentos de oración comunitaria en nuestra parroquia.
                 </p>
                 <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Pascua 2026 • Por Comunidad Parroquial</div>
               </div>

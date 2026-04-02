@@ -11,7 +11,7 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Caminando la Fe - Portal Religioso",
+  title: "Caminando la Fé - Portal Religioso",
   description: "Portal religioso con reflexiones, lecturas y herramientas para guitarristas católicos.",
 };
 

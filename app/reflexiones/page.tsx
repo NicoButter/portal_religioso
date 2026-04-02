@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar';
 import Link from 'next/link';
 import { reflexiones } from '../data';
 
-const categorias = ['Todas', 'Espiritualidad', 'Vida Diaria', 'Comunidad', 'Fe'];
+const categorias = ['Todas', 'Espiritualidad', 'Vida Diaria', 'Comunidad', 'Fé'];
 
 export default function ReflexionesPage() {
   const [activeCategory, setActiveCategory] = useState('Todas');

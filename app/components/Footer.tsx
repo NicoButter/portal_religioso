@@ -75,7 +75,7 @@ export default function Footer() {
             © {year} CAMINANDO EN LA FÉ — TODOS LOS DERECHOS RESERVADOS
           </p>
           <div className="flex gap-10 text-[10px] font-black text-gray-500 uppercase tracking-tighter">
-            <span className="hover:text-red-600 transition-colors cursor-pointer">Privacidad</span>
+            <Link href="/privacidad" className="hover:text-red-600 transition-colors">Privacidad</Link>
             <Link href="/terminos" className="hover:text-red-600 transition-colors">Términos</Link>
           </div>
         </div>
