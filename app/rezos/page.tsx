@@ -5,22 +5,27 @@ import { useState, useEffect } from 'react';
 const REZOS = [
   {
     titulo: "Padre Nuestro",
+    imagen: "/images/reszos/resto_padre_nuestro.jpeg",
     texto: "Padre nuestro, que estás en el cielo, santificado sea tu Nombre; venga a nosotros tu reino; hágase tu voluntad en la tierra como en el cielo. Danos hoy nuestro pan de cada día; perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden; no nos dejes caer en la tentación, y líbranos del mal. Amén."
   },
   {
     titulo: "Ave María",
+    imagen: "/images/reszos/rezo_ave_maria.jpeg",
     texto: "Dios te salve María, llena eres de gracia, el Señor es contigo; bendita tú eres entre todas las mujeres, y bendito es el fruto de tu vientre, Jesús. Santa María, Madre de Dios, ruega por nosotros, pecadores, ahora y en la ahora de nuestra muerte. Amén."
   },
   {
     titulo: "Gloria",
+    imagen: "/images/reszos/rezo_gloria.jpeg",
     texto: "Gloria al Padre, y al Hijo, y al Espíritu Santo. Como era en el principio, ahora y siempre, por los siglos de los siglos. Amén."
   },
   {
     titulo: "Credo de los Apóstoles",
+    imagen: "/images/reszos/rezo_credo_apostoles.jpeg",
     texto: "Creo en Dios, Padre Todopoderoso, Creador del cielo y de la tierra. Creo en Jesucristo, su único Hijo, Nuestro Señor, que fue concebido por obra y gracia del Espíritu Santo, nació de Santa María Virgen, padeció bajo el poder de Poncio Pilato, fue crucificado, muerto y sepultado, descendió a los infiernos, al tercer día resucitó de entre los muertos, subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso. Desde allí ha de venir a juzgar a vivos y muertos. Creo en el Espíritu Santo, la santa Iglesia Católica, la comunión de los santos, el perdón de los pecados, la resurrección de la carne y la vida eterna. Amén."
   },
   {
     titulo: "Salve",
+    imagen: "/images/reszos/rezo_salve.jpeg",
     texto: "Dios te salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra; Dios te salve. A ti llamamos los desterrados hijos de Eva; a ti suspiramos, gimiendo y llorando en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos; y después de este desierro muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh clementísima, oh piadosa, oh dulce siempre Virgen María! Ruega por nosotros, Santa Madre de Dios, para que seamos dignos de alcanzar las promesas de Nuestro Señor Jesucristo. Amén."
   }
 ];
@@ -141,11 +146,24 @@ export default function RezosPage() {
         {tab === 'tradicionales' && (
           <div className="grid gap-8">
             {REZOS.map((rezo, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                <h2 className="text-2xl font-serif italic text-red-600 mb-4">{rezo.titulo}</h2>
-                <p className="text-slate-700 leading-relaxed italic whitespace-pre-line text-lg">
-                  &quot;{rezo.texto}&quot;
-                </p>
+              <div key={idx} className="bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow overflow-hidden flex flex-col md:flex-row">
+                <div className="w-full md:w-1/3 h-48 md:h-auto relative bg-slate-100">
+                  <img 
+                    src={rezo.imagen} 
+                    alt={rezo.titulo}
+                    className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                </div>
+                <div className="p-8 flex-1">
+                  <h2 className="text-2xl font-serif italic text-red-600 mb-4">{rezo.titulo}</h2>
+                  <p className="text-slate-700 leading-relaxed italic whitespace-pre-line text-lg">
+                    &quot;{rezo.texto}&quot;
+                  </p>
+                </div>
               </div>
             ))}
           </div>
