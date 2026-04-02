@@ -21,33 +21,68 @@ const SHAPES: { [key: string]: ChordPosition } = {
   "Fm": { frets: [1, 3, 3, 1, 1, 1], barre: 1 },
   "Gm": { frets: [3, 5, 5, 3, 3, 3], barre: 3 },
   "Bm": { frets: ["x", 2, 4, 4, 3, 2], barre: 2 },
+  // Sostenidos / Bemoles (Mayores)
+  "C#": { frets: ["x", 4, 6, 6, 6, 4], barre: 4 },
+  "Db": { frets: ["x", 4, 6, 6, 6, 4], barre: 4 },
+  "D#": { frets: ["x", 6, 8, 8, 8, 6], barre: 6 },
+  "Eb": { frets: ["x", 6, 8, 8, 8, 6], barre: 6 },
+  "F#": { frets: [2, 4, 4, 3, 2, 2], barre: 2 },
+  "Gb": { frets: [2, 4, 4, 3, 2, 2], barre: 2 },
+  "G#": { frets: [4, 6, 6, 5, 4, 4], barre: 4 },
+  "Ab": { frets: [4, 6, 6, 5, 4, 4], barre: 4 },
+  "A#": { frets: ["x", 1, 3, 3, 3, 1], barre: 1 },
+  "Bb": { frets: ["x", 1, 3, 3, 3, 1], barre: 1 },
+  // Sostenidos / Bemoles (Menores)
+  "C#m": { frets: ["x", 4, 6, 6, 5, 4], barre: 4 },
+  "Dbm": { frets: ["x", 4, 6, 6, 5, 4], barre: 4 },
+  "D#m": { frets: ["x", 6, 8, 8, 7, 6], barre: 6 },
+  "Ebm": { frets: ["x", 6, 8, 8, 7, 6], barre: 6 },
+  "F#m": { frets: [2, 4, 4, 2, 2, 2], barre: 2 },
+  "Gbm": { frets: [2, 4, 4, 2, 2, 2], barre: 2 },
+  "G#m": { frets: [4, 6, 6, 4, 4, 4], barre: 4 },
+  "Abm": { frets: [4, 6, 6, 4, 4, 4], barre: 4 },
+  "A#m": { frets: ["x", 1, 3, 3, 2, 1], barre: 1 },
+  "Bbm": { frets: ["x", 1, 3, 3, 2, 1], barre: 1 },
 };
 
 export default function ChordDiagram({ name, data }: { name: string, data?: ChordPosition }) {
   const position = data || SHAPES[name] || { frets: [0,0,0,0,0,0] };
 
+  // Calcular el traste mínimo para mostrar a la izquierda si es mayor a 1
+  const minFret = position.frets.reduce((min: number, f) => {
+    if (f === "x" || f === 0) return min;
+    return Math.min(min, f as number);
+  }, 99);
+
+  const startFret = minFret > 3 ? minFret : 1;
+
   return (
     <div className="flex flex-col items-center p-2 bg-white rounded border border-slate-100 shadow-sm w-32 shrink-0 select-none">
       <span className="text-sm font-bold text-slate-800 mb-2">{name}</span>
-      <svg width="60" height="70" viewBox="0 0 60 70" className="overflow-visible pointer-events-none">
+      <svg width="70" height="74" viewBox="0 0 70 74" className="overflow-visible pointer-events-none">
+        {/* Fret Number */}
+        {startFret > 1 && (
+          <text x="2" y="18" fontSize="10" className="fill-slate-400 font-bold">{startFret}</text>
+        )}
+
         {/* Nut (Ceja) */}
-        <line x1="10" y1="10" x2="50" y2="10" stroke="#334155" strokeWidth="3" />
+        <line x1="15" y1="10" x2="55" y2="10" stroke="#334155" strokeWidth={startFret === 1 ? "3" : "1"} />
         
         {/* Frets (Trastes) */}
         {[1, 2, 3, 4, 5].map(f => (
-          <line key={f} x1="10" y1={10 + f * 12} x2="50" y2={10 + f * 12} stroke="#cbd5e1" strokeWidth="1" />
+          <line key={f} x1="15" y1={10 + f * 12} x2="55" y2={10 + f * 12} stroke="#cbd5e1" strokeWidth="1" />
         ))}
 
         {/* Strings (Cuerdas) */}
         {[0, 1, 2, 3, 4, 5].map(s => (
-          <line key={s} x1={10 + s * 8} y1="10" x2={10 + s * 8} y2="70" stroke="#94a3b8" strokeWidth="1" />
+          <line key={s} x1={15 + s * 8} y1="10" x2={15 + s * 8} y2="70" stroke="#94a3b8" strokeWidth="1" />
         ))}
 
         {/* Barre (Cejilla) */}
         {position.barre && (
             <rect 
-                x={10} 
-                y={10 + (position.barre - 1) * 12 + 4} 
+                x={15} 
+                y={10 + (position.barre - startFret) * 12 + 4} 
                 width="40" 
                 height="4" 
                 rx="2" 
@@ -59,11 +94,13 @@ export default function ChordDiagram({ name, data }: { name: string, data?: Chor
         {/* Fingers (Dedos/Posiciones) */}
         {position.frets.map((fret, sIndex) => {
           if (fret === "x") {
-            return <text key={sIndex} x={8 + sIndex * 8} y="8" fontSize="8" className="fill-red-500 font-bold">x</text>;
+            return <text key={sIndex} x={13 + sIndex * 8} y="8" fontSize="8" className="fill-red-500 font-bold">x</text>;
           }
           if (fret === 0) {
-            return <circle key={sIndex} cx={10 + sIndex * 8} cy="6" r="2.5" fill="none" stroke="#64748b" strokeWidth="1" />;
+            return <circle key={sIndex} cx={15 + sIndex * 8} cy="6" r="2.5" fill="none" stroke="#64748b" strokeWidth="1" />;
           }
+          
+          const relativeFret = (fret as number) - startFret;
           
           // No dibujar círculo si el traste coincide con la cejilla (barre)
           if (position.barre && fret === position.barre) {
@@ -73,8 +110,8 @@ export default function ChordDiagram({ name, data }: { name: string, data?: Chor
           return (
             <circle 
               key={sIndex} 
-              cx={10 + sIndex * 8} 
-              cy={10 + (fret as number) * 12 - 6} 
+              cx={15 + sIndex * 8} 
+              cy={10 + relativeFret * 12 + 6} 
               r="3.5" 
               fill="#1e293b" 
             />

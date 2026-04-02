@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import ChordDiagram from "../components/ChordDiagram";
 
 const NOTES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-const CHORD_MAJORS = ["C", "D", "E", "F", "G", "A", "B"];
-const CHORD_MINORS = ["Cm", "Dm", "Em", "Fm", "Gm", "Am", "Bm"];
+const CHORD_MAJORS = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+const CHORD_MINORS = ["Cm", "C#m", "Dm", "D#m", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "A#m", "Bm"];
 
 const ALIASES: { [key: string]: string } = {
   "Db": "C#",
