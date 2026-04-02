@@ -64,6 +64,12 @@ export default function ChordDiagram({ name, data }: { name: string, data?: Chor
           if (fret === 0) {
             return <circle key={sIndex} cx={10 + sIndex * 8} cy="6" r="2.5" fill="none" stroke="#64748b" strokeWidth="1" />;
           }
+          
+          // No dibujar círculo si el traste coincide con la cejilla (barre)
+          if (position.barre && fret === position.barre) {
+            return null;
+          }
+
           return (
             <circle 
               key={sIndex} 
