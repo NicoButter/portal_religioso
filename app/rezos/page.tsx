@@ -153,20 +153,32 @@ export default function RezosPage() {
                   ))}
                 </div>
 
-                <div className="mt-12 p-6 bg-slate-50 rounded-2xl border-l-4 border-red-600">
-                  <h4 className="font-bold text-slate-900 mb-2">Misterios según el día:</h4>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600 mb-8">
-                    <li><strong>Lunes y Sábados:</strong> Gozosos</li>
-                    <li><strong>Martes y Viernes:</strong> Dolorosos</li>
-                    <li><strong>Miércoles y Domingos:</strong> Gloriosos</li>
-                    <li><strong>Jueves:</strong> Luminosos</li>
+                <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-200 shadow-inner">
+                  <h4 className="font-serif italic text-2xl text-slate-900 mb-6 text-center">Misterios según el día</h4>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600 mb-10">
+                    <li className="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                      <span><strong>Lunes y Sábados:</strong> Gozosos</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                      <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                      <span><strong>Martes y Viernes:</strong> Dolorosos</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                      <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                      <span><strong>Miércoles y Domingos:</strong> Gloriosos</span>
+                    </li>
+                    <li className="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                      <span className="w-2 h-2 bg-white border border-slate-300 rounded-full shadow-sm"></span>
+                      <span><strong>Jueves:</strong> Luminosos</span>
+                    </li>
                   </ul>
 
                   {/* Detalle de los Misterios para aprendizaje */}
-                  <div className="space-y-6 pt-6 border-t border-slate-200">
-                    <div>
-                      <h5 className="font-bold text-red-700 text-sm uppercase tracking-widest mb-3">Misterios Gozosos (Infancia de Jesús)</h5>
-                      <p className="text-xs text-slate-500 leading-relaxed italic">
+                  <div className="space-y-10 pt-8 border-t border-slate-200">
+                    <div className="relative pl-6 border-l-2 border-slate-100">
+                      <h5 className="font-bold text-slate-800 text-sm uppercase tracking-[0.2em] mb-4">Misterios Gozosos <span className="text-[10px] font-normal text-slate-400 block mt-1">(Infancia de Jesús)</span></h5>
+                      <p className="text-[13px] text-slate-500 leading-loose italic">
                         1. La Encarnación del Hijo de Dios. <br/>
                         2. La Visitación de Nuestra Señora a su prima Santa Isabel. <br/>
                         3. El Nacimiento del Hijo de Dios en el portal de Belén. <br/>
@@ -174,9 +186,9 @@ export default function RezosPage() {
                         5. El Niño Jesús perdido y hallado en el Templo.
                       </p>
                     </div>
-                    <div>
-                      <h5 className="font-bold text-red-700 text-sm uppercase tracking-widest mb-3">Misterios Luminosos (Vida Pública)</h5>
-                      <p className="text-xs text-slate-500 leading-relaxed italic">
+                    <div className="relative pl-6 border-l-2 border-slate-100">
+                      <h5 className="font-bold text-slate-800 text-sm uppercase tracking-[0.2em] mb-4">Misterios Luminosos <span className="text-[10px] font-normal text-slate-400 block mt-1">(Vida Pública)</span></h5>
+                      <p className="text-[13px] text-slate-500 leading-loose italic">
                         1. El Bautismo de Jesús en el Jordán. <br/>
                         2. El autorrevelación en las bodas de Caná. <br/>
                         3. El anuncio del Reino de Dios invitando a la conversión. <br/>
@@ -184,9 +196,9 @@ export default function RezosPage() {
                         5. La Institución de la Eucaristía.
                       </p>
                     </div>
-                    <div>
-                      <h5 className="font-bold text-red-700 text-sm uppercase tracking-widest mb-3">Misterios Dolorosos (Pasión y Muerte)</h5>
-                      <p className="text-xs text-slate-500 leading-relaxed italic">
+                    <div className="relative pl-6 border-l-2 border-slate-100">
+                      <h5 className="font-bold text-slate-800 text-sm uppercase tracking-[0.2em] mb-4">Misterios Dolorosos <span className="text-[10px] font-normal text-slate-400 block mt-1">(Pasión y Muerte)</span></h5>
+                      <p className="text-[13px] text-slate-500 leading-loose italic">
                         1. La Oración de Nuestro Señor en el Huerto. <br/>
                         2. La Flagelación del Señor atado a la columna. <br/>
                         3. La Coronación de espinas. <br/>
@@ -194,9 +206,9 @@ export default function RezosPage() {
                         5. La Crucifixión y Muerte de Nuestro Señor.
                       </p>
                     </div>
-                    <div>
-                      <h5 className="font-bold text-red-700 text-sm uppercase tracking-widest mb-3">Misterios Gloriosos (Resurrección y Gloria)</h5>
-                      <p className="text-xs text-slate-500 leading-relaxed italic">
+                    <div className="relative pl-6 border-l-2 border-slate-100">
+                      <h5 className="font-bold text-slate-800 text-sm uppercase tracking-[0.2em] mb-4">Misterios Gloriosos <span className="text-[10px] font-normal text-slate-400 block mt-1">(Resurrección y Gloria)</span></h5>
+                      <p className="text-[13px] text-slate-500 leading-loose italic">
                         1. La Resurrección del Señor. <br/>
                         2. La Ascensión del Señor a los cielos. <br/>
                         3. La Venida del Espíritu Santo sobre los Apóstoles. <br/>
