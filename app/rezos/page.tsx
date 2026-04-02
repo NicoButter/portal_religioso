@@ -76,7 +76,7 @@ const PASOS_ROSARIO = [
 export default function RezosPage() {
   const [tab, setTab] = useState('tradicionales');
   const [mounted, setMounted] = useState(false);
-  const [selectedRezo, setSelectedRezo] = useState<null | {titulo: string, texto: string}>(null);
+  const [selectedRezo, setSelectedRezo] = useState<null | {titulo: string, texto: string, imagen?: string}>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -96,24 +96,39 @@ export default function RezosPage() {
         {/* Modal para rezos */}
         {selectedRezo && (
           <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setSelectedRezo(null)}>
-            <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border border-slate-100 animate-in fade-in zoom-in duration-200" onClick={e => e.stopPropagation()}>
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-serif italic text-red-600">{selectedRezo.titulo}</h2>
-                <button onClick={() => setSelectedRezo(null)} className="text-slate-400 hover:text-slate-600 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+            <div className="bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl border border-slate-100 animate-in fade-in zoom-in duration-200" onClick={e => e.stopPropagation()}>
+              {selectedRezo.imagen && (
+                <div className="h-40 w-full relative bg-slate-100">
+                  <img 
+                    src={selectedRezo.imagen} 
+                    alt={selectedRezo.titulo}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+                </div>
+              )}
+              <div className="p-8 pt-4">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-2xl font-serif italic text-red-600">{selectedRezo.titulo}</h2>
+                  <button onClick={() => setSelectedRezo(null)} className="text-slate-400 hover:text-slate-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                <p className="text-slate-700 leading-relaxed italic text-lg whitespace-pre-line bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                  &quot;{selectedRezo.texto}&quot;
+                </p>
+                <button 
+                  onClick={() => setSelectedRezo(null)} 
+                  className="w-full mt-8 bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition-colors"
+                >
+                  Cerrar
                 </button>
               </div>
-              <p className="text-slate-700 leading-relaxed italic text-lg whitespace-pre-line bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                &quot;{selectedRezo.texto}&quot;
-              </p>
-              <button 
-                onClick={() => setSelectedRezo(null)} 
-                className="w-full mt-8 bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition-colors"
-              >
-                Cerrar
-              </button>
             </div>
           </div>
         )}
