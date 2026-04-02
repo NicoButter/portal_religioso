@@ -70,7 +70,7 @@ export default function TransposerPage() {
             {/* Fila Mayores */}
             <div>
               <p className="text-xs font-bold text-slate-400 mb-2 ml-1">ACORDES MAYORES</p>
-              <div className="flex flex-wrap gap-3 overflow-x-auto pb-2 scrollbar-hide">
+              <div className="flex flex-wrap gap-4 overflow-x-auto py-4 px-2 scrollbar-hide min-h-[140px] items-center">
                 {CHORD_MAJORS.map(chord => {
                   const isSelected = selectedChords.includes(chord);
                   return (
@@ -78,7 +78,7 @@ export default function TransposerPage() {
                       type="button"
                       key={chord}
                       onClick={() => addChord(chord)}
-                      className={`relative group cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 rounded-lg p-1 ${
+                      className={`relative group cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 rounded-lg p-1.5 ${
                         isSelected 
                           ? "ring-2 ring-slate-800 scale-105 shadow-lg bg-slate-800" 
                           : "opacity-70 hover:opacity-100"
@@ -86,7 +86,7 @@ export default function TransposerPage() {
                     >
                       <ChordDiagram name={chord} />
                       {isSelected && (
-                        <div className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 shadow-md border-2 border-white pointer-events-none">
+                        <div className="absolute -top-3 -right-3 bg-red-500 text-white rounded-full p-1 shadow-md border-2 border-white pointer-events-none z-10 transition-all">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                           </svg>
@@ -101,7 +101,7 @@ export default function TransposerPage() {
             {/* Fila Menores */}
             <div>
               <p className="text-xs font-bold text-slate-400 mb-2 ml-1">ACORDES MENORES (Pentatónica / Comunes)</p>
-              <div className="flex flex-wrap gap-3 overflow-x-auto pb-2 scrollbar-hide">
+              <div className="flex flex-wrap gap-4 overflow-x-auto py-4 px-2 scrollbar-hide min-h-[140px] items-center">
                 {CHORD_MINORS.map(chord => {
                   const isSelected = selectedChords.includes(chord);
                   return (
@@ -109,7 +109,7 @@ export default function TransposerPage() {
                       type="button"
                       key={chord}
                       onClick={() => addChord(chord)}
-                      className={`relative group cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 rounded-lg p-1 ${
+                      className={`relative group cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 rounded-lg p-1.5 ${
                         isSelected 
                           ? "ring-2 ring-slate-800 scale-105 shadow-lg bg-slate-800" 
                           : "opacity-70 hover:opacity-100"
@@ -117,7 +117,7 @@ export default function TransposerPage() {
                     >
                       <ChordDiagram name={chord} />
                       {isSelected && (
-                        <div className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 shadow-md border-2 border-white pointer-events-none">
+                        <div className="absolute -top-3 -right-3 bg-red-500 text-white rounded-full p-1 shadow-md border-2 border-white pointer-events-none z-10 transition-all">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                           </svg>
