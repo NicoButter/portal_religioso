@@ -12,9 +12,9 @@ export default function Footer() {
           
           {/* Columna Marca */}
           <div className="md:col-span-5">
-            <div className="text-3xl font-black text-white tracking-tighter uppercase mb-6 leading-none">
-              Fabián <br />
-              <span className="text-red-600"></span>
+            <div className="text-3xl font-black text-white tracking-tighter italic font-serif mb-6 leading-none">
+              Caminando <br />
+              <span className="text-red-600">en la Fé</span>
             </div>
             <p className="text-gray-400 text-lg leading-relaxed max-w-sm font-light">
               Un espacio dedicado al acompañamiento espiritual, la reflexión profunda y el encuentro a través de la música y la palabra.
@@ -72,7 +72,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.2em]">
-            © {year} FABIÁN — TODOS LOS DERECHOS RESERVADOS
+            © {year} CAMINANDO EN LA FÉ — TODOS LOS DERECHOS RESERVADOS
           </p>
           <div className="flex gap-10 text-[10px] font-black text-gray-500 uppercase tracking-tighter">
             <span className="hover:text-red-600 transition-colors cursor-pointer">Privacidad</span>
