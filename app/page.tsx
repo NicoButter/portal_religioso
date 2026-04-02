@@ -92,12 +92,14 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { title: 'Reflexiones', desc: 'Palabras para el alma y pensamiento profundo.', icon: '🙏', link: '/reflexiones' },
-                { title: 'Lecturas', desc: 'Textos sagrados y ensayos exclusivos de Fabián.', icon: '📖', link: '/lecturas' },
+                { title: 'Reflexiones', desc: 'Palabras para el alma y pensamiento profundo.', icon: '🕊️', link: '/reflexiones' },
+                { title: 'Rezos', desc: 'Oraciones tradicionales y guía del Santo Rosario.', icon: '🙏', link: '/rezos' },
                 { title: 'Música', desc: 'Composiciones originales para orar y encontrar paz.', icon: '🎶', link: '/musica' },
+                { title: 'Lecturas', desc: 'Textos sagrados y ensayos exclusivos de Fabián.', icon: '📖', link: '/lecturas' },
                 { title: 'Transportador', desc: 'Herramienta para músicos: cambia el tono de tus acordes.', icon: '🎸', link: '/transposer' },
+                { title: 'Galería', desc: 'Imágenes y momentos de nuestra comunidad.', icon: '🖼️', link: '/galeria' },
               ].map((item, idx) => (
                 <Link key={idx} href={item.link} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
                   <div className="text-4xl mb-6">{item.icon}</div>

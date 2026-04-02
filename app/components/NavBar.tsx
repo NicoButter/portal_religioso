@@ -38,6 +38,7 @@ export default function NavBar() {
         <div className="hidden md:flex items-center gap-8">
           <Link href="/" className="text-sm uppercase tracking-wide hover:text-gray-300 transition-colors">Home</Link>
           <Link href="/reflexiones" className="text-sm uppercase tracking-wide hover:text-gray-300 transition-colors">Reflexiones</Link>
+          <Link href="/rezos" className="text-sm uppercase tracking-wide hover:text-gray-300 transition-colors">Rezos</Link>
           <Link href="/lecturas" className="text-sm uppercase tracking-wide hover:text-gray-300 transition-colors">Lecturas</Link>
           <Link href="/musica" className="text-sm uppercase tracking-wide hover:text-gray-300 transition-colors">Música</Link>
           <Link href="/transposer" className="text-sm uppercase tracking-wide px-3 py-1 bg-white/10 hover:bg-white/20 rounded-md transition-all border border-white/20">Acordes</Link>
@@ -61,6 +62,13 @@ export default function NavBar() {
           className="text-2xl font-serif italic text-white hover:text-red-500 transition-colors"
         >
           Reflexiones
+        </Link>
+        <Link 
+          href="/rezos" 
+          onClick={toggleMenu}
+          className="text-2xl font-serif italic text-white hover:text-red-500 transition-colors"
+        >
+          Rezos
         </Link>
         <Link 
           href="/lecturas" 
