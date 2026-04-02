@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const REZOS = [
   {
@@ -92,13 +93,12 @@ export default function RezosPage() {
             <div className="bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl border border-slate-100 animate-in fade-in zoom-in duration-200" onClick={e => e.stopPropagation()}>
               {selectedRezo.imagen && (
                 <div className="h-40 w-full relative bg-slate-100">
-                  <img 
+                  <Image 
                     src={selectedRezo.imagen} 
                     alt={selectedRezo.titulo}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 512px) 100vw, 512px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
                 </div>
@@ -155,15 +155,13 @@ export default function RezosPage() {
           <div className="grid gap-8">
             {REZOS.map((rezo, idx) => (
               <div key={idx} className="bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow overflow-hidden flex flex-col md:flex-row">
-                <div className="w-full md:w-1/3 h-48 md:h-auto relative bg-slate-100">
-                  <img 
+                <div className="w-full md:w-1/3 h-48 md:h-auto rative bg-slate-100 relative">
+                  <Image 
                     src={rezo.imagen} 
                     alt={rezo.titulo}
-                    className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                    }}
+                    fill
+                    className="object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <div className="p-8 flex-1">
@@ -182,14 +180,13 @@ export default function RezosPage() {
           <div className="space-y-8">
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
               <div className="relative h-64 md:h-96 w-full overflow-hidden bg-slate-900 flex items-center justify-center">
-                <img
+                <Image
                   src="/images/reszos/rezo_rosario.jpeg"
                   alt="Rezo del Santo Rosario"
-                  className="w-full h-full object-contain bg-slate-900 hover:scale-105 transition-all duration-700"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                  }}
+                  fill
+                  priority
+                  className="object-contain bg-slate-900 hover:scale-105 transition-all duration-700"
+                  sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent flex flex-col items-center justify-end pb-8">
                   <h2 className="text-3xl md:text-4xl font-serif italic text-white mb-2 shadow-sm">Guía del Santo Rosario</h2>
