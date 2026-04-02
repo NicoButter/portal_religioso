@@ -75,19 +75,12 @@ const PASOS_ROSARIO = [
 
 export default function RezosPage() {
   const [tab, setTab] = useState('tradicionales');
-  const [mounted, setMounted] = useState(false);
   const [selectedRezo, setSelectedRezo] = useState<null | {titulo: string, texto: string, imagen?: string}>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const openRezoModal = (titulo: string) => {
     const rezo = REZOS.find(r => r.titulo.toLowerCase().includes(titulo.toLowerCase()));
     if (rezo) setSelectedRezo(rezo);
   };
-
-  if (!mounted) return null;
 
   return (
     <main className="min-h-screen pt-24 pb-12 bg-slate-50 font-sans">
