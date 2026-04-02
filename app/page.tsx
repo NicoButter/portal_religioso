@@ -23,10 +23,10 @@ export default function Home() {
           <div className="relative z-10 flex items-center justify-center h-full bg-black/40">
             <div className="text-center text-white max-w-3xl px-6">
               <h2 className="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg">
-                Bienvenido a tu Portal Espiritual
+                Caminando en la Fé
               </h2>
               <p className="text-xl md:text-2xl font-light tracking-wide opacity-90">
-                Un espacio para la fé, la música y el acompañamiento.
+                Donde la fe se hace experiencia, la música se vuelve mensaje y el camino se comparte.
               </p>
             </div>
           </div>
