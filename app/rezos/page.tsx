@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 
 const REZOS = [
@@ -22,7 +22,7 @@ const REZOS = [
   {
     titulo: "Credo de los Apóstoles",
     imagen: "/images/reszos/rezo_credo_apostoles.jpeg",
-    texto: "Creo en Dios, Padre Todopoderoso, Creador del cielo y de la tierra. Creo en Jesucristo, su único Hijo, Nuestro Señor, que fue concebido por obra y gracia del Espíritu Santo, nació de Santa María Virgen, padeció bajo el poder de Poncio Pilato, fue crucificado, muerto y sepultado, descendió a los infiernos, al tercer día resucitó de entre los muertos, subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso. Desde allí ha de venir a juzgar a vivos y muertos. Creo en el Espíritu Santo, la santa Iglesia Católica, la comunión de los santos, el perdón de los pecados, la resurrección de la carne y la vida eterna. Amén."
+    texto: "Creo en Dios, Padre Todopoderoso, Creador del cielo y de la tierra. Creo en Jesucristo, su único Hijo, Nuestro Señor, que fue concebido por obra y gracia del Espíritu Santo, nació de Santa María Virgen, padeció bajo el poder de Poncio Pilato, fue crucificado, muerto y sepultado, descendió a los infiernos, al third día resucitó de entre los muertos, subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso. Desde allí ha de venir a juzgar a vivos y muertos. Creo en el Espíritu Santo, la santa Iglesia Católica, la comunión de los santos, el perdón de los pecados, la resurrección de la carne y la vida eterna. Amén."
   },
   {
     titulo: "Salve",
@@ -155,16 +155,18 @@ export default function RezosPage() {
           <div className="grid gap-8">
             {REZOS.map((rezo, idx) => (
               <div key={idx} className="bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow overflow-hidden flex flex-col md:flex-row">
-                <div className="w-full md:w-1/3 h-48 md:h-auto rative bg-slate-100 relative">
+                <div className={`w-full relative bg-slate-100 ${rezo.titulo === 'Ave María' ? 'h-96 md:h-[600px] md:w-1/2' : 'md:w-1/3 h-48 md:h-auto'}`}>
                   <Image 
                     src={rezo.imagen} 
                     alt={rezo.titulo}
                     fill
-                    className="object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    priority={rezo.titulo === 'Ave María'}
+                    loading={rezo.titulo === 'Ave María' ? undefined : 'lazy'}
+                    className="object-contain md:object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                    sizes={rezo.titulo === 'Ave María' ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
                   />
                 </div>
-                <div className="p-8 flex-1">
+                <div className="p-8 flex-1 flex flex-col justify-center">
                   <h2 className="text-2xl font-serif italic text-red-600 mb-4">{rezo.titulo}</h2>
                   <p className="text-slate-700 leading-relaxed italic whitespace-pre-line text-lg">
                     &quot;{rezo.texto}&quot;
@@ -202,7 +204,7 @@ export default function RezosPage() {
                     <p className="text-xs text-red-700 leading-relaxed">Representa nuestra redención. Iniciamos profesando nuestra fé con el Credo.</p>
                   </div>
                   <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
-                    <h4 className="font-bold text-blue-800 text-sm uppercase mb-2">Las Cuentas</h4>
+                    <h4 className="font-bold text-blue-800 text-sm uppercase mb-2">La Cruz (Ave Marías)</h4>
                     <p className="text-xs text-blue-700 leading-relaxed">Pequeñas para Ave Marías (Rosas a María) y grandes para el Padre Nuestro.</p>
                   </div>
                   <div className="bg-amber-50 p-4 rounded-xl border border-amber-100">
@@ -301,7 +303,7 @@ export default function RezosPage() {
                         2. La Ascensión del Señor a los cielos. <br/>
                         3. La Venida del Espíritu Santo sobre los Apóstoles. <br/>
                         4. La Asunción de Nuestra Señora a los cielos en cuerpo y alma. <br/>
-                        5. La Coronación de la Santísima Virgen como Reina de todo lo creado.
+                        5. La Coronación de la Santísima Virgen como Reina de todo lo created.
                       </p>
                     </div>
                   </div>
