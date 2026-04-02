@@ -1,6 +1,5 @@
 
 import NavBar from './components/NavBar';
-import Footer from './components/Footer';
 import Link from 'next/link';
 import Card from './components/Card';
 
@@ -45,36 +44,36 @@ export default function Home() {
               {/* Noticia Principal */}
               <div className="md:col-span-2 group cursor-pointer">
                 <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
-                  <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2073&auto=format&fit=crop" alt="Retiro" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-xs px-2 py-1 rounded">COMUNIDAD</div>
+                  <img src="/images/novedades/novedades_pascuas.jpeg" alt="Semana Santa" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute top-4 left-4 bg-red-600 backdrop-blur-md text-white text-xs px-2 py-1 rounded font-bold">ESPECIAL</div>
                 </div>
                 <h3 className="text-3xl font-bold text-gray-900 group-hover:text-red-700 transition-colors leading-tight mb-3">
-                  Próxima jornada de retiro espiritual: Un encuentro con el silencio
+                  Cronograma de Semana Santa 2026: Pasión, Muerte y Resurrección
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Te invitamos a participar de nuestro próximo encuentro comunitario. Un espacio diseñado para desconectar del ruido cotidiano y reconectar con la esencia de nuestra fe.
+                  Acompáñanos en los días más sagrados de nuestra fe. Desde el Domingo de Ramos hasta la Vigilia Pascual, conoce todos los horarios de las celebraciones, vía crucis y momentos de oración comunitaria en nuestra parroquia.
                 </p>
-                <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Hace 2 horas • Por Fabián Cavero</div>
+                <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Pascua 2026 • Por Comunidad Parroquial</div>
               </div>
 
               {/* Columna de secundarias */}
               <div className="flex flex-col gap-8">
                 <div className="group cursor-pointer border-b border-gray-100 pb-6">
-                  <div className="text-red-600 text-xs font-black uppercase mb-2">Lecturas</div>
+                  <div className="text-red-600 text-xs font-black uppercase mb-2">Reflexión</div>
                   <h4 className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors leading-snug">
-                    Nuevo material de lectura disponible para la meditación semanal
+                    El Triduo Pascual: Un camino de silencio y esperanza renovada
                   </h4>
                 </div>
                 <div className="group cursor-pointer border-b border-gray-100 pb-6">
-                  <div className="text-red-600 text-xs font-black uppercase mb-2">Música</div>
+                  <div className="text-red-600 text-xs font-black uppercase mb-2">Vía Crucis</div>
                   <h4 className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors leading-snug">
-                    Actualización de la galería: Melodías que elevan el alma
+                    Misión por las calles: El Vía Crucis viviente recorrerá el barrio
                   </h4>
                 </div>
                 <div className="group cursor-pointer">
-                  <div className="text-red-600 text-xs font-black uppercase mb-2">Iglesia</div>
+                  <div className="text-red-600 text-xs font-black uppercase mb-2">Confesiones</div>
                   <h4 className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors leading-snug">
-                    Horarios de misas semanales y celebraciones especiales
+                    Preparar el corazón: Horarios especiales de reconciliación
                   </h4>
                 </div>
               </div>
@@ -149,11 +148,7 @@ export default function Home() {
         </section>
 
         {/* Contenedor central para el resto del contenido (VERSION ANTERIOR - ELIMINADA O MOVIDA) */}
-        {/* <div className="max-w-6xl mx-auto px-4 py-20 space-y-20"> */}
-          {/* ... */}
-        {/* </div> */}
       </main>
-      <Footer />
     </div>
   );
 }

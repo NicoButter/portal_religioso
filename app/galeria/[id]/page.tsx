@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { celebraciones } from '../../data';
 import NavBar from '../../components/NavBar';
-import Footer from '../../components/Footer';
 import Link from 'next/link';
 
 export async function generateStaticParams() {
@@ -87,8 +86,6 @@ export default async function GaleriaItemPage({
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

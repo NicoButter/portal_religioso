@@ -2,13 +2,12 @@
 
 import { useState } from 'react';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 
 const lecturas = [
   {
     id: 1,
     title: 'La Fé y la Esperanza en Tiempos de Incertidumbre',
-    author: 'Fabián Cavero',
+    author: 'Fabián',
     date: '20 Mar 2024',
     category: 'Ensayo',
     readTime: '5 min',
@@ -19,7 +18,7 @@ const lecturas = [
   {
     id: 2,
     title: 'El Valor del Silencio: Una Guía para la Meditación',
-    author: 'Fabián Cavero',
+    author: 'Fabián',
     date: '18 Mar 2024',
     category: 'Guía Espiritual',
     readTime: '3 min',
@@ -30,7 +29,7 @@ const lecturas = [
   {
     id: 3,
     title: 'La Comunidad como Refugio del Espíritu',
-    author: 'Fabián Cavero',
+    author: 'Fabián',
     date: '12 Mar 2024',
     category: 'Reflexión Social',
     readTime: '4 min',
@@ -55,7 +54,7 @@ export default function LecturasPage() {
             Lecturas <span className="text-red-600">Espirituales</span>
           </h1>
           <p className="text-lg text-gray-500 max-w-xl mx-auto leading-relaxed font-medium">
-            Textos y ensayos exclusivos creados por <span className="text-gray-900 font-bold border-b-2 border-red-600">Fabián Cavero</span> para nutrir tu mente y espíritu.
+            Textos y ensayos exclusivos creados por <span className="text-gray-900 font-bold border-b-2 border-red-600">Fabián</span> para nutrir tu mente y espíritu.
           </p>
         </div>
       </header>
@@ -121,8 +120,6 @@ export default function LecturasPage() {
           ))}
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

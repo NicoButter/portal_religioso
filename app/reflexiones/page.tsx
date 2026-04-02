@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 import Link from 'next/link';
 import { reflexiones } from '../data';
 
@@ -93,8 +92,6 @@ export default function ReflexionesPage() {
           ))}
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

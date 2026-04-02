@@ -14,16 +14,24 @@ export default function Footer() {
           <div className="md:col-span-5">
             <div className="text-3xl font-black text-white tracking-tighter uppercase mb-6 leading-none">
               Fabián <br />
-              <span className="text-red-600">Cavero</span>
+              <span className="text-red-600"></span>
             </div>
             <p className="text-gray-400 text-lg leading-relaxed max-w-sm font-light">
               Un espacio dedicado al acompañamiento espiritual, la reflexión profunda y el encuentro a través de la música y la palabra.
             </p>
             <div className="mt-10 flex gap-4">
-              {['FB', 'IG', 'YT'].map((social) => (
-                <div key={social} className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-[10px] font-black text-gray-400 border border-white/10 hover:border-red-600 hover:text-white hover:bg-red-600 cursor-pointer transition-all duration-300">
-                  {social}
-                </div>
+              {[
+                { icon: 'fa-facebook-f', link: '#' },
+                { icon: 'fa-instagram', link: '#' },
+                { icon: 'fa-youtube', link: '#' }
+              ].map((social, idx) => (
+                <a 
+                  key={idx} 
+                  href={social.link}
+                  className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-xl text-gray-400 border border-white/10 hover:border-red-600 hover:text-white hover:bg-red-600 cursor-pointer transition-all duration-300"
+                >
+                  <i className={`fa-brands ${social.icon}`}></i>
+                </a>
               ))}
             </div>
           </div>
@@ -64,11 +72,11 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.2em]">
-            © {year} FABIÁN CAVERO — TODOS LOS DERECHOS RESERVADOS
+            © {year} FABIÁN — TODOS LOS DERECHOS RESERVADOS
           </p>
           <div className="flex gap-10 text-[10px] font-black text-gray-500 uppercase tracking-tighter">
             <span className="hover:text-red-600 transition-colors cursor-pointer">Privacidad</span>
-            <span className="hover:text-red-600 transition-colors cursor-pointer">Términos</span>
+            <Link href="/terminos" className="hover:text-red-600 transition-colors">Términos</Link>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import { reflexiones } from "../../data";
 import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -27,7 +26,7 @@ export default async function ReflexionPost({ params }: { params: { id: string }
             <div className="flex items-center justify-center gap-4 text-gray-400 text-sm font-bold uppercase tracking-widest">
               <span>{post.date}</span>
               <span>•</span>
-              <span>Por Fabián Cavero</span>
+              <span>Por Fabián</span>
             </div>
           </header>
 
@@ -51,7 +50,6 @@ export default async function ReflexionPost({ params }: { params: { id: string }
           </div>
         </article>
       </main>
-      <Footer />
     </div>
   );
 }

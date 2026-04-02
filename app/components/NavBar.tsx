@@ -1,7 +1,6 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function NavBar() {
   return (
@@ -10,19 +9,14 @@ export default function NavBar() {
         
         {/* Logo + Frase */}
         <div className="flex items-center gap-3">
-          <div className="relative w-12 h-12 overflow-hidden rounded">
-            <Image
-              src="/logo_fabian.webp"
-              alt="Logo Portal Religioso"
-              fill
-              sizes="48px"
-              className="object-cover"
-              priority
-            />
-          </div>
-          <span className="font-serif italic text-lg leading-tight">
-            Caminando en la Fe 
-          </span>
+          <Link href="/" className="flex flex-col">
+            <span className="font-serif italic text-2xl md:text-3xl leading-tight text-white hover:text-red-500 transition-colors">
+              Caminando en la Fe 
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-red-600 font-bold -mt-1 ml-1">
+              Portal Religioso
+            </span>
+          </Link>
         </div>
 
         {/* Links Desktop */}

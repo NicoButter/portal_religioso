@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 
 const misCanciones = [
   {
@@ -49,7 +48,7 @@ export default function MusicaPage() {
             <header className="mb-12">
               <span className="text-red-500 font-black uppercase tracking-[0.2em] text-xs mb-3 block">Música Original</span>
               <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none mb-6">
-                Fabián <span className="text-red-600 block md:inline">Cavero</span>
+                Fabián <span className="text-red-600 block md:inline"></span>
               </h1>
               <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
                 Escucha mis composiciones originales creadas para acompañar tu oración y momentos de paz. Cada nota es una intención.
@@ -141,8 +140,6 @@ export default function MusicaPage() {
 
         </div>
       </main>
-
-      <Footer />
 
       <style jsx global>{`
         @keyframes music-bar {
