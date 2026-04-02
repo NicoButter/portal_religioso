@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const REZOS = [
   {
@@ -70,11 +70,49 @@ const PASOS_ROSARIO = [
 
 export default function RezosPage() {
   const [tab, setTab] = useState('tradicionales');
+  const [mounted, setMounted] = useState(false);
+  const [selectedRezo, setSelectedRezo] = useState<null | {titulo: string, texto: string}>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const openRezoModal = (titulo: string) => {
+    const rezo = REZOS.find(r => r.titulo.toLowerCase().includes(titulo.toLowerCase()));
+    if (rezo) setSelectedRezo(rezo);
+  };
+
+  if (!mounted) return null;
 
   return (
     <main className="min-h-screen pt-24 pb-12 bg-slate-50 font-sans">
       <div className="max-w-4xl mx-auto px-6">
         
+        {/* Modal para rezos */}
+        {selectedRezo && (
+          <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setSelectedRezo(null)}>
+            <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border border-slate-100 animate-in fade-in zoom-in duration-200" onClick={e => e.stopPropagation()}>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-serif italic text-red-600">{selectedRezo.titulo}</h2>
+                <button onClick={() => setSelectedRezo(null)} className="text-slate-400 hover:text-slate-600 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <p className="text-slate-700 leading-relaxed italic text-lg whitespace-pre-line bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                &quot;{selectedRezo.texto}&quot;
+              </p>
+              <button 
+                onClick={() => setSelectedRezo(null)} 
+                className="w-full mt-8 bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition-colors"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Encabezado */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-serif italic text-slate-900 mb-4">Oración y Devoción</h1>
@@ -117,9 +155,20 @@ export default function RezosPage() {
         {tab === 'rosario' && (
           <div className="space-y-8">
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
-              <div className="bg-slate-900 p-8 text-white text-center">
-                <h2 className="text-3xl font-serif italic mb-2">Guía del Santo Rosario</h2>
-                <p className="text-slate-400 text-sm italic">&quot;El Rosario es la cadena que nos une a Dios&quot;</p>
+              <div className="relative h-64 md:h-96 w-full overflow-hidden bg-slate-900 flex items-center justify-center">
+                <img
+                  src="/images/reszos/rezo_rosario.jpeg"
+                  alt="Rezo del Santo Rosario"
+                  className="w-full h-full object-contain bg-slate-900 hover:scale-105 transition-all duration-700"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent flex flex-col items-center justify-end pb-8">
+                  <h2 className="text-3xl md:text-4xl font-serif italic text-white mb-2 shadow-sm">Guía del Santo Rosario</h2>
+                  <p className="text-slate-300 text-sm italic tracking-widest uppercase">&quot;El Rosario es la cadena que nos une a Dios&quot;</p>
+                </div>
               </div>
               
               <div className="p-8">
@@ -147,7 +196,24 @@ export default function RezosPage() {
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-900 text-lg mb-1">{item.instruccion}</h3>
-                        <p className="text-slate-500 italic text-sm">{item.rezo}</p>
+                        <div className="flex flex-wrap gap-2 items-center">
+                          <p className="text-slate-500 italic text-sm">{item.rezo}</p>
+                          {item.instruccion.includes("Padre Nuestro") && (
+                            <button onClick={() => openRezoModal("Padre Nuestro")} className="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-bold hover:bg-red-200 transition-colors uppercase tracking-wider">Ver Rezo</button>
+                          )}
+                          {item.instruccion.includes("Ave María") && (
+                            <button onClick={() => openRezoModal("Ave María")} className="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-bold hover:bg-blue-200 transition-colors uppercase tracking-wider">Ver Rezo</button>
+                          )}
+                          {item.instruccion.includes("Credo") && (
+                            <button onClick={() => openRezoModal("Credo")} className="text-[10px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full font-bold hover:bg-slate-300 transition-colors uppercase tracking-wider">Ver Rezo</button>
+                          )}
+                          {item.instruccion.includes("Gloria") && (
+                            <button onClick={() => openRezoModal("Gloria")} className="text-[10px] bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full font-bold hover:bg-yellow-200 transition-colors uppercase tracking-wider">Ver Rezo</button>
+                          )}
+                          {item.instruccion.includes("Salve") && (
+                            <button onClick={() => openRezoModal("Salve")} className="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold hover:bg-emerald-200 transition-colors uppercase tracking-wider">Ver Rezo</button>
+                          )}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -174,7 +240,6 @@ export default function RezosPage() {
                     </li>
                   </ul>
 
-                  {/* Detalle de los Misterios para aprendizaje */}
                   <div className="space-y-10 pt-8 border-t border-slate-200">
                     <div className="relative pl-6 border-l-2 border-slate-100">
                       <h5 className="font-bold text-slate-800 text-sm uppercase tracking-[0.2em] mb-4">Misterios Gozosos <span className="text-[10px] font-normal text-slate-400 block mt-1">(Infancia de Jesús)</span></h5>
