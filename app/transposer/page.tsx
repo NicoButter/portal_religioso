@@ -167,7 +167,13 @@ export default function TransposerPage() {
 
           <div className="flex items-center justify-between bg-slate-100 p-4 rounded-xl border border-slate-200">
             <div className="text-slate-700 font-medium">
-              Transportar: <span className="text-slate-900 font-bold text-xl ml-2">{offset > 0 ? `+${offset}` : offset}</span>
+              Transportar: 
+              <span className="text-slate-900 font-bold text-xl ml-2">{offset > 0 ? `+${offset}` : offset}</span>
+              <span className="text-slate-500 text-sm ml-2">
+                (semitonos) {Math.abs(offset) >= 2 && ` = ${offset / 2} ${Math.abs(offset / 2) === 1 ? 'tono' : 'tonos'}`}
+                {Math.abs(offset) === 1 && ` = 1/2 tono`}
+                {Math.abs(offset) % 2 !== 0 && Math.abs(offset) > 1 && ` (y medio)`}
+              </span>
             </div>
             <div className="flex gap-2">
               <button
