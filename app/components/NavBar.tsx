@@ -10,11 +10,8 @@ export default function NavBar() {
         {/* Logo + Frase */}
         <div className="flex items-center gap-3">
           <Link href="/" className="flex flex-col">
-            <span className="font-serif italic text-2xl md:text-3xl leading-tight text-white hover:text-red-500 transition-colors">
-              Caminando en la Fe 
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-red-600 font-bold -mt-1 ml-1">
-              Portal Religioso
+            <span className="font-serif italic text-2xl md:text-4xl leading-tight text-white hover:text-red-500 transition-colors drop-shadow-md">
+              Caminando en la Fé 
             </span>
           </Link>
         </div>
