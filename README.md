@@ -1,4 +1,4 @@
-# Portal Religioso
+# Caminando por la Fe
 
 Un portal dedicado a contenidos religiosos, reflexiones, música, rezos y más, construido con [Next.js](https://nextjs.org).
 
@@ -38,9 +38,16 @@ Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el 
 - `public/`: Archivos estáticos como imágenes y fuentes.
 - `components/`: Componentes reutilizables de UI.
 
+## Créditos y Contacto
+
+Este proyecto es desarrollado por:
+
+- **Nicolas Butterfield** - [nicobutter@gmail.com](mailto:nicobutter@gmail.com)
+- **Fabian Cavero**
+
 ## Despliegue
 
 La forma más sencilla de desplegar esta aplicación es usando la [Plataforma Vercel](https://vercel.com/new).
 
 ---
-Desarrollado con ❤️ para la comunidad espiritual.
+Desarrollado con ❤️ por el equipo de **Caminando por la Fe**.
