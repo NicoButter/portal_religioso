@@ -1,6 +1,18 @@
 # Caminando por la Fe
 
+<p align="center">
+  <img src="public/images/logo.png" alt="Logo Caminando por la Fe" width="200" />
+</p>
+
 Un portal dedicado a contenidos religiosos, reflexiones, música, rezos y más, construido con [Next.js](https://nextjs.org).
+
+## Capturas de Pantalla
+
+<p align="center">
+  <img src="public/images/screenshots/home.png" alt="Vista Principal" width="800" />
+  <br />
+  <em>Vista principal del portal</em>
+</p>
 
 ## Características
 
