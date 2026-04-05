@@ -78,16 +78,18 @@ export default function TransposerPage() {
                       type="button"
                       key={chord}
                       onClick={() => addChord(chord)}
-                      className={`relative group cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 rounded-lg p-1.5 ${
+                      className={`relative group cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 rounded-lg p-1 ${
                         isSelected 
                           ? "ring-2 ring-slate-800 scale-105 shadow-lg bg-slate-800" 
-                          : "opacity-70 hover:opacity-100"
+                          : "opacity-60 hover:opacity-100 bg-white shadow-sm border border-slate-100"
                       }`}
                     >
-                      <ChordDiagram name={chord} />
+                      <div className="scale-90 sm:scale-100 transform-gpu">
+                        <ChordDiagram name={chord} />
+                      </div>
                       {isSelected && (
                         <div 
-                          className="absolute -top-3 -right-3 bg-red-500 text-white rounded-full p-1 shadow-md border-2 border-white z-10 transition-all hover:bg-red-600 active:scale-90"
+                          className="absolute -top-2 -right-2 bg-slate-100 text-slate-800 rounded-full p-1 shadow-md border border-slate-200 z-10 transition-all hover:bg-red-500 hover:text-white"
                           onClick={(e) => {
                             e.stopPropagation();
                             addChord(chord);
@@ -115,16 +117,18 @@ export default function TransposerPage() {
                       type="button"
                       key={chord}
                       onClick={() => addChord(chord)}
-                      className={`relative group cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 rounded-lg p-1.5 ${
+                      className={`relative group cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 rounded-lg p-1 ${
                         isSelected 
                           ? "ring-2 ring-slate-800 scale-105 shadow-lg bg-slate-800" 
-                          : "opacity-70 hover:opacity-100"
+                          : "opacity-60 hover:opacity-100 bg-white shadow-sm border border-slate-100"
                       }`}
                     >
-                      <ChordDiagram name={chord} />
+                      <div className="scale-90 sm:scale-100 transform-gpu">
+                        <ChordDiagram name={chord} />
+                      </div>
                       {isSelected && (
                         <div 
-                          className="absolute -top-3 -right-3 bg-red-500 text-white rounded-full p-1 shadow-md border-2 border-white z-10 transition-all hover:bg-red-600 active:scale-90"
+                          className="absolute -top-2 -right-2 bg-slate-100 text-slate-800 rounded-full p-1 shadow-md border border-slate-200 z-10 transition-all hover:bg-red-500 hover:text-white"
                           onClick={(e) => {
                             e.stopPropagation();
                             addChord(chord);
@@ -150,18 +154,25 @@ export default function TransposerPage() {
               <div className="w-full p-4 border border-slate-200 rounded-lg font-mono text-lg bg-slate-50/50 min-h-[60px] flex flex-wrap gap-2 items-center">
                 {selectedChords.length > 0 ? (
                   selectedChords.map((c, i) => (
-                    <span key={i} className="bg-slate-200 px-2 py-1 rounded text-slate-800 font-bold">{c}</span>
+                    <span 
+                      key={i} 
+                      className="bg-slate-800 text-white px-3 py-1 rounded-full text-sm font-bold shadow-sm animate-in fade-in zoom-in duration-300"
+                    >
+                      {c}
+                    </span>
                   ))
                 ) : (
                   <span className="text-slate-400 italic">Haz clic en los diagramas superiores para añadir acordes...</span>
                 )}
               </div>
-              <button 
-                onClick={() => setSelectedChords([])}
-                className="absolute top-2 right-2 text-xs text-slate-400 hover:text-red-500 font-bold"
-              >
-                Limpiar
-              </button>
+              {selectedChords.length > 0 && (
+                <button 
+                  onClick={() => setSelectedChords([])}
+                  className="absolute top-2 right-2 text-xs text-slate-400 hover:text-red-500 font-bold bg-white px-2 py-1 rounded border border-slate-100 shadow-sm transition-colors"
+                >
+                  Limpiar Todo
+                </button>
+              )}
             </div>
           </div>
 
@@ -198,22 +209,32 @@ export default function TransposerPage() {
           </div>
 
           {selectedChords.length > 0 && (
-            <div className="space-y-6">
-              <div className="p-8 bg-slate-900 text-white rounded-2xl shadow-xl border-4 border-slate-800">
-                <h2 className="text-xs uppercase tracking-widest text-slate-400 mb-6 font-bold border-b border-slate-700 pb-2">Cancionero Transportado</h2>
-                <div className="font-mono text-3xl tracking-widest leading-relaxed whitespace-pre-wrap break-words text-yellow-400 drop-shadow-sm">
+            <div className="space-y-6 animate-in slide-in-from-bottom-4 duration-500">
+              <div className="p-8 bg-slate-900 text-white rounded-3xl shadow-2xl border-4 border-slate-800 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                   <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                </div>
+                <h2 className="text-xs uppercase tracking-widest text-slate-400 mb-6 font-bold border-b border-white/10 pb-2 flex justify-between items-center">
+                  <span>Cancionero Transportado</span>
+                  <span className="bg-yellow-500/20 text-yellow-500 px-2 py-0.5 rounded text-[10px] ring-1 ring-yellow-500/30">PREVISUALIZACIÓN</span>
+                </h2>
+                <div className="font-mono text-4xl sm:text-5xl font-black tracking-[0.2em] leading-relaxed whitespace-pre-wrap break-words text-yellow-400 drop-shadow-[0_2px_10px_rgba(250,204,21,0.3)]">
                   {getTransposedText()}
                 </div>
               </div>
 
-              {/* Diagramas de los acordes resultantes si son básicos */}
-              <div className="overflow-x-auto pb-2">
-                <div className="flex gap-4 min-w-max">
-                  {Array.from(new Set(transposedChords)).map((c, idx) => (
-                    <div key={`${c}-${idx}`} className="opacity-90 grayscale hover:grayscale-0 transition-all">
-                      <ChordDiagram name={c} />
-                    </div>
-                  ))}
+              {/* Diagramas de los acordes resultantes */}
+              <div className="space-y-4">
+                <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider ml-1">Cómo tocar estos acordes:</h3>
+                <div className="overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent">
+                  <div className="flex gap-4 min-w-max px-2">
+                    {Array.from(new Set(transposedChords)).map((c, idx) => (
+                      <div key={`${c}-${idx}`} className="bg-white p-2 rounded-xl shadow-sm border border-slate-100 ring-1 ring-slate-900/5 hover:ring-slate-900/20 transition-all hover:shadow-md transform hover:-translate-y-1">
+                        <ChordDiagram name={c} />
+                        <p className="text-center text-[10px] font-bold text-slate-400 mt-1 uppercase">{c}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
