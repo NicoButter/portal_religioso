@@ -49,46 +49,69 @@ export default function ReflexionesPage() {
           ))}
         </div>
 
-        {/* Lista de Reflexiones - Estilo Feed Moderno */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+        {/* Lista de Reflexiones - Estilo Columna Editorial Moderna */}
+        <div className="space-y-24">
           {filteredReflexiones.map((ref) => (
-            <Link 
-              key={ref.id} 
-              href={`/reflexiones/${ref.id}`}
-              className="group cursor-pointer flex flex-col"
-            >
-              <div className="relative aspect-video overflow-hidden rounded-2xl mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
-                <img 
-                  src={ref.image} 
-                  alt={ref.title} 
-                  className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700" 
-                />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur text-gray-900 text-[10px] font-black px-2 py-1 rounded-md uppercase">
-                  {ref.category}
-                </div>
+            <div key={ref.id} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start border-b border-gray-100 pb-16 last:border-0 hover:bg-gray-50/50 p-6 rounded-3xl transition-colors duration-500">
+              {/* Imagen Principal de la Reflexión */}
+              <div className="lg:col-span-7">
+                <Link href={`/reflexiones/${ref.id}`} className="block group overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500">
+                  <img 
+                    src={ref.image} 
+                    alt={ref.title} 
+                    className="aspect-[4/3] md:aspect-video object-cover w-full transform group-hover:scale-105 transition-transform duration-1000" 
+                  />
+                </Link>
               </div>
 
-              <div className="flex-1">
-                <div className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-tight">{ref.date}</div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors leading-tight">
-                  {ref.title}
-                </h2>
-                
-                <p className="text-gray-600 leading-relaxed mb-4 line-clamp-3">
-                  {ref.excerpt}
-                </p>
+              {/* Contenido y Autor */}
+              <div className="lg:col-span-5 flex flex-col h-full justify-between">
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="bg-red-600 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">
+                      {ref.category}
+                    </span>
+                    <span className="text-gray-400 text-xs font-bold uppercase tracking-tight">{ref.date}</span>
+                  </div>
 
-                <div className="flex items-center gap-2 text-red-600 font-bold text-xs uppercase tracking-tighter">
-                  <span>Leer reflexión completa</span>
-                  <svg 
-                    className="w-4 h-4" 
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  <Link href={`/reflexiones/${ref.id}`} className="group">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6 group-hover:text-red-700 transition-colors leading-tight tracking-tighter uppercase">
+                      {ref.title}
+                    </h2>
+                  </Link>
+                  
+                  <p className="text-gray-600 text-lg leading-relaxed mb-8 line-clamp-4 font-serif italic italic">
+                    &quot;{ref.excerpt}&quot;
+                  </p>
+                </div>
+
+                {/* Perfil del Autor Estilo Digital Moderno */}
+                <div className="flex items-center justify-between pt-8 border-t border-gray-100">
+                  <div className="flex items-center gap-4">
+                    <div className="relative w-14 h-14 overflow-hidden rounded-full border-2 border-red-50 shadow-sm transition-transform hover:scale-110">
+                      <img 
+                        src={(ref as any).authorImage || "https://images.unsplash.com/photo-1544717297-fa1516596136?q=80&w=2070&auto=format&fit=crop"} 
+                        alt={(ref as any).author} 
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-red-600 font-black uppercase tracking-widest leading-none mb-1">Escrito por</p>
+                      <h4 className="text-lg font-bold text-gray-900 leading-tight">{(ref as any).author || "Colaborador"}</h4>
+                    </div>
+                  </div>
+
+                  <Link 
+                    href={`/reflexiones/${ref.id}`}
+                    className="hidden sm:flex w-10 h-10 items-center justify-center rounded-full bg-gray-900 text-white hover:bg-red-600 transition-colors shadow-lg group"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
+                    <svg className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </main>
