@@ -34,43 +34,43 @@ const REZOS = [
 const PASOS_ROSARIO = [
   {
     paso: "1",
-    instruccion: "Hacer la Señal de la Cruz y rezar el Credo de los Apóstoles.",
+    instruccion: "Sostener el crucifijo, hacer la Señal de la Cruz y rezar el Credo.",
     rezo: "Señal de la Cruz: Por la señal de la Santa Cruz..."
   },
   {
     paso: "2",
-    instruccion: "Rezar el Padre Nuestro.",
-    rezo: "En la primera cuenta grande."
+    instruccion: "Anunciar el Misterio correspondiente y rezar el Padre Nuestro.",
+    rezo: "Se realiza en la cuenta grande antes de cada decena."
   },
   {
     paso: "3",
-    instruccion: "Rezar tres Ave María (por la fe, esperanza y caridad).",
-    rezo: "En las siguientes tres cuentas pequeñas."
+    instruccion: "Rezar las 10 Ave Marías meditando el misterio.",
+    rezo: "Una por cada cuenta pequeña de la decena."
   },
   {
     paso: "4",
-    instruccion: "Rezar el Gloria.",
-    rezo: "Antes de comenzar el primer misterio."
+    instruccion: "Rezar el Gloria y la Jaculatoria.",
+    rezo: "'¡Oh Jesús mío...!' al finalizar cada decena."
   },
   {
     paso: "5",
-    instruccion: "Anunciar el Misterio correspondiente y rezar el Padre Nuestro.",
-    rezo: "Depende del día de la semana (Gozosos, Dolorosos, Gloriosos o Luminosos)."
+    instruccion: "Repetir para los 5 misterios.",
+    rezo: "Siguiendo el orden de las cuentas del rosario."
   },
   {
     paso: "6",
-    instruccion: "Rezar las 10 Ave Marías meditando el misterio.",
-    rezo: "Una por cada cuenta de la decena."
+    instruccion: "Rezar el Padre Nuestro (al finalizar los 5 misterios).",
+    rezo: "En la cuenta grande cerca de la medalla."
   },
   {
     paso: "7",
-    instruccion: "Rezar el Gloria y la Oración de Fátima.",
-    rezo: "'¡Oh Jesús mío, perdona nuestros pecados...!'"
+    instruccion: "Rezar tres Ave Marías (por la fe, esperanza y caridad).",
+    rezo: "En las tres cuentas pequeñas finales."
   },
   {
     paso: "8",
-    instruccion: "Repetir para los 5 misterios y terminar con la Salve.",
-    rezo: "Al finalizar las 5 decenas."
+    instruccion: "Rezar la Salve.",
+    rezo: "Al finalizar todas las oraciones."
   }
 ];
 
