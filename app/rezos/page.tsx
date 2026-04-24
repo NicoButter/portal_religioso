@@ -28,6 +28,12 @@ const REZOS = [
     titulo: "Salve",
     imagen: "/images/reszos/rezo_salve.jpeg",
     texto: "Dios te salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra; Dios te salve. A ti llamamos los desterrados hijos de Eva; a ti suspiramos, gimiendo y llorando en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos; y después de este desierro muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh clementísima, oh piadosa, oh dulce siempre Virgen María! Ruega por nosotros, Santa Madre de Dios, para que seamos dignos de alcanzar las promesas de Nuestro Señor Jesucristo. Amén."
+  },
+  {
+    titulo: "Coronilla de la Divina Misericordia",
+    imagen: "/images/reszos/rezo_misericordia.jpeg",
+    subtitulo: "La Hora Santa (15:00 hs)",
+    texto: "Se reza preferiblemente a las 3:00 PM.\n\n1. Padre Nuestro, Ave María y Credo.\n2. En las cuentas grandes: 'Padre Eterno, Te ofrezco el Cuerpo y la Sangre, el Alma y la Divinidad de Tu Amadísimo Hijo, Nuestro Señor Jesucristo, como propiciación de nuestros pecados y los del mundo entero'.\n3. En las cuentas pequeñas: 'Por Su dolorosa Pasión, ten misericordia de nosotros y del mundo entero'.\n4. Al terminar (3 veces): 'Santo Dios, Santo Fuerte, Santo Inmortal, ten piedad de nosotros y del mundo entero'.\n5. Jaculatoria final: 'Oh sangre y agua que brotaste del Corazón de Jesús como fuente de misericordia para nosotros, en Ti confío'."
   }
 ];
 
@@ -246,18 +252,27 @@ export default function RezosPage() {
             {REZOS.map((rezo, idx) => (
               <div key={idx} className="bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow overflow-hidden flex flex-col md:flex-row">
                 <div className={`w-full relative bg-slate-100 ${rezo.titulo === 'Ave María' ? 'h-96 md:h-[600px] md:w-1/2' : 'md:w-1/3 h-48 md:h-auto'}`}>
-                  <Image 
-                    src={rezo.imagen} 
-                    alt={rezo.titulo}
-                    fill
-                    priority={rezo.titulo === 'Ave María'}
-                    loading={rezo.titulo === 'Ave María' ? undefined : 'lazy'}
-                    className="object-contain md:object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
-                    sizes={rezo.titulo === 'Ave María' ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
-                  />
+                  {rezo.imagen && (
+                    <Image 
+                      src={rezo.imagen} 
+                      alt={rezo.titulo}
+                      fill
+                      priority={rezo.titulo === 'Ave María'}
+                      loading={rezo.titulo === 'Ave María' ? undefined : 'lazy'}
+                      className="object-contain md:object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                      sizes={rezo.titulo === 'Ave María' ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
+                    />
+                  )}
                 </div>
                 <div className="p-8 flex-1 flex flex-col justify-center">
-                  <h2 className="text-2xl font-serif italic text-red-600 mb-4">{rezo.titulo}</h2>
+                  <div className="flex justify-between items-start mb-4">
+                    <h2 className="text-2xl font-serif italic text-red-600">{rezo.titulo}</h2>
+                    {'subtitulo' in rezo && (
+                      <span className="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter shadow-sm animate-pulse">
+                        {rezo.subtitulo as string}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-slate-700 leading-relaxed italic whitespace-pre-line text-lg">
                     &quot;{rezo.texto}&quot;
                   </p>
