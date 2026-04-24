@@ -74,9 +74,57 @@ const PASOS_ROSARIO = [
   }
 ];
 
+const MISTERIOS = {
+  gozosos: {
+    titulo: "Misterios Gozosos",
+    subtitulo: "(Infancia de Jesús)",
+    misterios: [
+      { titulo: "1. La Encarnación del Hijo de Dios", explicacion: "El ángel del Señor anunció a María y ella concibió por obra y gracia del Espíritu Santo." },
+      { titulo: "2. La Visitación de Nuestra Señora a su prima Santa Isabel", explicacion: "María corre a ayudar a su prima Isabel, quien al recibirla exclama: '¿Quién soy yo para que me visite la madre de mi Señor?'" },
+      { titulo: "3. El Nacimiento del Hijo de Dios en el portal de Belén", explicacion: "En la humildad de un pesebre, nace el Salvador del mundo, la Luz que ilumina a todas las naciones." },
+      { titulo: "4. La Purificación de la Virgen Santísima y presentación del Niño", explicacion: "María y José presentan a Jesús en el Templo, reconociéndolo como el Mesías esperado." },
+      { titulo: "5. El Niño Jesús perdido y hallado en el Templo", explicacion: "Tras tres días de angustia, encuentran a Jesús en el Templo, ocupado en las cosas de su Padre." }
+    ]
+  },
+  luminosos: {
+    titulo: "Misterios Luminosos",
+    subtitulo: "(Vida Pública)",
+    misterios: [
+      { titulo: "1. El Bautismo de Jesús en el Jordán", explicacion: "Jesús se somete al bautismo de Juan, y el Padre lo proclama como su Hijo Amado." },
+      { titulo: "2. El autorrevelación en las bodas de Caná", explicacion: "A instancias de María, Jesús realiza su primer milagro, transformando el agua en vino." },
+      { titulo: "3. El anuncio del Reino de Dios invitando a la conversión", explicacion: "Jesús predica la buena nueva y llama a todos a un cambio de vida para heredar el Reino." },
+      { titulo: "4. La Transfiguración", explicacion: "En el monte Tabor, Jesús muestra su gloria a los tres discípulos, anticipando su victoria sobre la muerte." },
+      { titulo: "5. La Institución de la Eucaristía", explicacion: "En la Última Cena, Jesús se entrega como alimento de vida eterna bajo las especies de pan y vino." }
+    ]
+  },
+  dolorosos: {
+    titulo: "Misterios Dolorosos",
+    subtitulo: "(Pasión y Muerte)",
+    misterios: [
+      { titulo: "1. La Oración de Nuestro Señor en el Huerto", explicacion: "En Getsemaní, Jesús acepta la voluntad del Padre ante el peso de los pecados del mundo." },
+      { titulo: "2. La Flagelación del Señor atado a la columna", explicacion: "Jesús sufre pacientemente los azotes por nuestra redención y expiación de nuestras culpas." },
+      { titulo: "3. La Coronación de espinas", explicacion: "El Rey de Reyes es humillado y coronado de espinas, transformando el dolor en amor." },
+      { titulo: "4. Jesús cargando con la Cruz camino del Calvario", explicacion: "Agotado pero firme, Jesús abraza su cruz para que nosotros podamos cargar las nuestras." },
+      { titulo: "5. La Crucifixión y Muerte de Nuestro Señor", explicacion: "Desde la cruz, Jesús nos entrega a su Madre y finalmente entrega su espíritu al Padre." }
+    ]
+  },
+  gloriosos: {
+    titulo: "Misterios Gloriosos",
+    subtitulo: "(Resurrección y Gloria)",
+    misterios: [
+      { titulo: "1. La Resurrección del Señor", explicacion: "¡Cristo ha resucitado! La muerte ha sido vencida y se nos abre la puerta a la vida eterna." },
+      { titulo: "2. La Ascensión del Señor a los cielos", explicacion: "Jesús asciende al Padre para prepararnos un lugar y enviarnos su ayuda divina." },
+      { titulo: "3. La Venida del Espíritu Santo sobre los Apóstoles", explicacion: "El Espíritu Santo desciende en Pentecostés, fortaleciendo a la Iglesia para su misión." },
+      { titulo: "4. La Asunción de Nuestra Señora a los cielos en cuerpo y alma", explicacion: "María es llevada a la gloria celestial, siendo primicia de lo que Dios hará con nosotros." },
+      { titulo: "5. La Coronación de la Santísima Virgen como Reina de todo lo creado", explicacion: "María es exaltada por Dios como Reina de cielos y tierra, nuestra Madre y protectora." }
+    ]
+  }
+};
+
 export default function RezosPage() {
   const [tab, setTab] = useState('tradicionales');
   const [selectedRezo, setSelectedRezo] = useState<null | {titulo: string, texto: string, imagen?: string}>(null);
+  const [selectedMystery, setSelectedMystery] = useState<null | {titulo: string, explicacion: string}>(null);
 
   const openRezoModal = (titulo: string) => {
     const rezo = REZOS.find(r => r.titulo.toLowerCase().includes(titulo.toLowerCase()));
@@ -89,6 +137,7 @@ export default function RezosPage() {
         
         {/* Modal para rezos */}
         {selectedRezo && (
+          /* ... existing code ... */
           <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setSelectedRezo(null)}>
             <div className="bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl border border-slate-100 animate-in fade-in zoom-in duration-200" onClick={e => e.stopPropagation()}>
               {selectedRezo.imagen && (
@@ -120,6 +169,47 @@ export default function RezosPage() {
                   className="w-full mt-8 bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition-colors"
                 >
                   Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Modal para explicación de misterios */}
+        {selectedMystery && (
+          <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setSelectedMystery(null)}>
+            <div className="bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl border border-slate-100 animate-in fade-in zoom-in duration-200" onClick={e => e.stopPropagation()}>
+              <div className="p-8">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-2xl font-serif italic text-red-600">{selectedMystery.titulo}</h2>
+                  <button onClick={() => setSelectedMystery(null)} className="text-slate-400 hover:text-slate-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                <div className="bg-red-50 p-6 rounded-2xl border border-red-100 mb-6">
+                  <h4 className="text-red-800 font-bold text-xs uppercase tracking-widest mb-3">Meditación:</h4>
+                  <p className="text-slate-700 leading-relaxed italic text-lg whitespace-pre-line mb-6">
+                    &quot;{selectedMystery.explicacion}&quot;
+                  </p>
+                  
+                  <div className="pt-6 border-t border-red-200">
+                    <h4 className="text-red-800 font-bold text-xs uppercase tracking-widest mb-3">Jaculatoria:</h4>
+                    <p className="text-red-900 leading-relaxed italic text-base whitespace-pre-line">
+                      &quot;¡Oh Jesús mío, perdona nuestros pecados, líbranos del fuego del infierno, lleva al cielo a todas las almas, especialmente a las más necesitadas de tu divina misericordia!&quot;
+                    </p>
+                    <p className="text-red-900/60 leading-relaxed italic text-sm mt-4">
+                      V. María, Madre de gracia, Madre de misericordia. <br/>
+                      R. En la vida y en la muerte, ampáranos, Gran Señora.
+                    </p>
+                  </div>
+                </div>
+                <button 
+                  onClick={() => setSelectedMystery(null)} 
+                  className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition-colors uppercase tracking-widest text-sm"
+                >
+                  Volver al Rosario
                 </button>
               </div>
             </div>
@@ -266,46 +356,28 @@ export default function RezosPage() {
                   </ul>
 
                   <div className="space-y-10 pt-8 border-t border-slate-200">
-                    <div className="relative pl-6 border-l-2 border-slate-100">
-                      <h5 className="font-bold text-slate-800 text-sm uppercase tracking-[0.2em] mb-4">Misterios Gozosos <span className="text-[10px] font-normal text-slate-400 block mt-1">(Infancia de Jesús)</span></h5>
-                      <p className="text-[13px] text-slate-500 leading-loose italic">
-                        1. La Encarnación del Hijo de Dios. <br/>
-                        2. La Visitación de Nuestra Señora a su prima Santa Isabel. <br/>
-                        3. El Nacimiento del Hijo de Dios en el portal de Belén. <br/>
-                        4. La Purificación de la Virgen Santísima y presentación del Niño. <br/>
-                        5. El Niño Jesús perdido y hallado en el Templo.
-                      </p>
-                    </div>
-                    <div className="relative pl-6 border-l-2 border-slate-100">
-                      <h5 className="font-bold text-slate-800 text-sm uppercase tracking-[0.2em] mb-4">Misterios Luminosos <span className="text-[10px] font-normal text-slate-400 block mt-1">(Vida Pública)</span></h5>
-                      <p className="text-[13px] text-slate-500 leading-loose italic">
-                        1. El Bautismo de Jesús en el Jordán. <br/>
-                        2. El autorrevelación en las bodas de Caná. <br/>
-                        3. El anuncio del Reino de Dios invitando a la conversión. <br/>
-                        4. La Transfiguración. <br/>
-                        5. La Institución de la Eucaristía.
-                      </p>
-                    </div>
-                    <div className="relative pl-6 border-l-2 border-slate-100">
-                      <h5 className="font-bold text-slate-800 text-sm uppercase tracking-[0.2em] mb-4">Misterios Dolorosos <span className="text-[10px] font-normal text-slate-400 block mt-1">(Pasión y Muerte)</span></h5>
-                      <p className="text-[13px] text-slate-500 leading-loose italic">
-                        1. La Oración de Nuestro Señor en el Huerto. <br/>
-                        2. La Flagelación del Señor atado a la columna. <br/>
-                        3. La Coronación de espinas. <br/>
-                        4. Jesús cargando con la Cruz camino del Calvario. <br/>
-                        5. La Crucifixión y Muerte de Nuestro Señor.
-                      </p>
-                    </div>
-                    <div className="relative pl-6 border-l-2 border-slate-100">
-                      <h5 className="font-bold text-slate-800 text-sm uppercase tracking-[0.2em] mb-4">Misterios Gloriosos <span className="text-[10px] font-normal text-slate-400 block mt-1">(Resurrección y Gloria)</span></h5>
-                      <p className="text-[13px] text-slate-500 leading-loose italic">
-                        1. La Resurrección del Señor. <br/>
-                        2. La Ascensión del Señor a los cielos. <br/>
-                        3. La Venida del Espíritu Santo sobre los Apóstoles. <br/>
-                        4. La Asunción de Nuestra Señora a los cielos en cuerpo y alma. <br/>
-                        5. La Coronación de la Santísima Virgen como Reina de todo lo created.
-                      </p>
-                    </div>
+                    {Object.entries(MISTERIOS).map(([key, group]) => (
+                      <div key={key} className="relative pl-6 border-l-2 border-slate-100">
+                        <h5 className="font-bold text-slate-800 text-sm uppercase tracking-[0.2em] mb-4">
+                          {group.titulo} <span className="text-[10px] font-normal text-slate-400 block mt-1">{group.subtitulo}</span>
+                        </h5>
+                        <div className="space-y-3">
+                          {group.misterios.map((m, mIdx) => (
+                            <div key={`${key}-${mIdx}`} className="group flex items-center justify-between py-1 border-b border-slate-50 last:border-0">
+                              <p className="text-[13px] text-slate-500 italic flex-1">
+                                {m.titulo}
+                              </p>
+                              <button 
+                                onClick={() => setSelectedMystery(m)}
+                                className="ml-2 text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-bold hover:bg-red-200 transition-colors uppercase tracking-wider"
+                              >
+                                Meditar
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
